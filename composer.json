@@ -6,6 +6,7 @@
             "email": "sergio@inbep.com.br"
         }
     ],
+    "license": "MIT",
     "require": {
         "php": "^7.0"
     },
