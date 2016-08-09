@@ -1,0 +1,47 @@
+{
+    "name": "prelude/prelude",
+    "authors": [
+        {
+            "name": "Sérgio Rafael Siqueira",
+            "email": "sergio@inbep.com.br"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    },
+    "autoload": {
+        "files": [
+            "src/_.php",
+            "src/allPass.php",
+            "src/always.php",
+            "src/equals.php",
+            "src/filter.php",
+            "src/flatten.php",
+            "src/get.php",
+            "src/getIn.php",
+            "src/has.php",
+            "src/id.php",
+            "src/ifElse.php",
+            "src/join.php",
+            "src/is.php",
+            "src/map.php",
+            "src/maybe.php",
+            "src/not.php",
+            "src/partial.php",
+            "src/pipe.php",
+            "src/placeholder.php",
+            "src/reduce.php",
+            "src/replace.php",
+            "src/slice.php",
+            "src/tail.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Prelude\\Tests\\": "tests"
+        }
+    }
+}
