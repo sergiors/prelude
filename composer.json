@@ -30,6 +30,7 @@
             "src/get.php",
             "src/getIn.php",
             "src/has.php",
+            "src/head.php",
             "src/id.php",
             "src/ifElse.php",
             "src/join.php",
