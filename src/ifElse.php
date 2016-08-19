@@ -6,11 +6,11 @@ const ifElse = __NAMESPACE__.'\ifElse';
 
 function ifElse(...$args)
 {
-    return partial(function (callable $pred, callable $ontrue, callable $onfalse) {
-        return function ($value) use ($pred, $ontrue, $onfalse) {
+    return partial(function (callable $pred, callable $success, callable $fail) {
+        return function ($value) use ($pred, $success, $fail) {
             return $pred($value)
-                ? $ontrue($value)
-                : $onfalse($value);
+                ? $success($value)
+                : $fail($value);
         };
     })(...$args);
 }

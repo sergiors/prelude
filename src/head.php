@@ -9,5 +9,6 @@ function head(array $xss)
     if ([] === $xss) {
         throw new \InvalidArgumentException();
     }
+    
     return array_values($xss)[0];
 }
