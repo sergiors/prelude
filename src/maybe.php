@@ -7,6 +7,13 @@ const maybe = __NAMESPACE__.'\maybe';
 interface MaybeInterface
 {
     /**
+     * @param callable $fn
+     *
+     * @return MaybeInterface
+     */
+    public function bind(callable $fn);
+
+    /**
      * The isJust function returns True iff its argument is of the form Just _.
      *
      * isJust :: Maybe a -> Bool
@@ -54,6 +61,14 @@ function maybe($value): MaybeInterface
 
     if (null === $value) {
         return new class implements MaybeInterface {
+            /**
+             * {@inheritdoc}
+             */
+            public function bind(callable $fn)
+            {
+                return $this;
+            }
+
             /**
              * {@inheritdoc}
              */
@@ -108,6 +123,14 @@ function maybe($value): MaybeInterface
         public function __construct($value)
         {
             $this->value = $value;
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function bind(callable $fn)
+        {
+            return maybe($fn($this->value));
         }
 
         /**
