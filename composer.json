@@ -21,7 +21,7 @@
     },
     "autoload": {
         "files": [
-            "src/_.php",
+            "src/consts.php",
             "src/allPass.php",
             "src/always.php",
             "src/equals.php",
