@@ -34,7 +34,6 @@
             "src/id.php",
             "src/ifElse.php",
             "src/join.php",
-            "src/is.php",
             "src/map.php",
             "src/maybe.php",
             "src/not.php",
