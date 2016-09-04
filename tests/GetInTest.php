@@ -27,4 +27,17 @@ class GetInTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('no zip code!', getIn($user, ['profile', 'address', 'zip-code'], 'no zip code!'));
         $this->assertEquals('no zip code!', getIn($user, [], 'no zip code!'));
     }
+
+    /**
+     * @test
+     */
+    public function shouldReturnNotFound()
+    {
+        $user = [
+            'username' => 'sally'
+        ];
+
+        $this->assertEquals('missing', getIn($user, [], 'missing'));
+        $this->assertEquals('missing', getIn($user, ['profile'], 'missing'));
+    }
 }
