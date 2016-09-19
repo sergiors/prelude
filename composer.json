@@ -24,6 +24,7 @@
             "src/consts.php",
             "src/allPass.php",
             "src/always.php",
+            "src/anyPass.php",
             "src/equals.php",
             "src/filter.php",
             "src/flatten.php",
