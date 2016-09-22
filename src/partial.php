@@ -8,11 +8,9 @@ function partial(callable $fn, ...$args)
 {
     $arity = (new \ReflectionFunction($fn))->getNumberOfRequiredParameters();
 
-    return function (...$moreArgs) use ($fn, $args, $arity) {
-        $args = array_merge($args, $moreArgs);
-
-        return isset($args[$arity - 1])
-            ? $fn(...$args)
-            : partial($fn, ...$args);
-    };
+    return isset($args[$arity - 1])
+        ? $fn(...$args)
+        : function (...$rest) use ($fn, $args) {
+            return partial($fn, ...array_merge($args, $rest));
+        };
 }
