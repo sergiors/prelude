@@ -44,7 +44,8 @@
             "src/reduce.php",
             "src/replace.php",
             "src/slice.php",
-            "src/tail.php"
+            "src/tail.php",
+            "src/typeof.php"
         ]
     },
     "autoload-dev": {
