@@ -11,8 +11,8 @@ class HeadTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnTheFirstArgument()
     {
-        $this->assertEquals('1', head([1, 2, 3]));
-        $this->assertEquals('1', head(['a' => 1, 'b' => 2, 'c' => 3]));
+        $this->assertEquals(1, head([1, 2, 3]));
+        $this->assertEquals(1, head(['a' => 1, 'b' => 2, 'c' => 3]));
     }
 
     /**

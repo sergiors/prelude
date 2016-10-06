@@ -10,7 +10,7 @@ function partial(callable $fn, ...$args)
 
     return isset($args[$arity - 1])
         ? $fn(...$args)
-        : function (...$rest) use ($fn, $args) {
-            return partial($fn, ...array_merge($args, $rest));
+        : function (...$restArgs) use ($fn, $args) {
+            return partial($fn, ...array_merge($args, $restArgs));
         };
 }

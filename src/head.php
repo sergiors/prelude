@@ -6,9 +6,10 @@ const head = __NAMESPACE__.'\head';
 
 function head(array $xss)
 {
-    if ([] === $xss) {
+    $throw = function () {
         throw new \InvalidArgumentException();
-    }
+    };
 
-    return array_values($xss)[0];
+    return ifElse(equals([]), $throw, values)($xss)[0];
 }
+
