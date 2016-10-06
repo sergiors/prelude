@@ -19,15 +19,16 @@ All functions are automatically applied partial application.
 ```
 allPass()
 always()
+anyPasss()
 equals()
 filter()
 flatten()
 get()
 getIn()
 has()
+head()
 id()
 ifElse()
-is()
 join()
 map()
 maybe()
@@ -39,6 +40,7 @@ reduce()
 replace()
 slice()
 tail()
+typeof()
 ```
 
 License

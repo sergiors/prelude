@@ -11,7 +11,7 @@ class TypeofTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnSameType()
     {
-        $user = new class extends \stdClass {};
+        $user = new \stdClass();
         $this->assertTrue(typeof(\stdClass::class, $user));
 
         $stdType = typeof(\stdClass::class);

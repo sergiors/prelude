@@ -12,4 +12,3 @@ function head(array $xss)
 
     return ifElse(equals([]), $throw, values)($xss)[0];
 }
-
