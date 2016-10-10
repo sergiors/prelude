@@ -4,6 +4,8 @@ Prelude
 [![Code Coverage](https://scrutinizer-ci.com/b/sergiors/prelude/badges/coverage.png?b=master)](https://scrutinizer-ci.com/b/sergiors/prelude/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/b/sergiors/prelude/badges/build.png?b=master)](https://scrutinizer-ci.com/b/sergiors/prelude/build-status/master)
 
+Install
+-------
 
 `composer require prelude/prelude "dev-master"`
 
@@ -18,7 +20,7 @@ Prelude
 
 API
 ---
-All functions are automatically applied partial application.
+All functions are automatically applied partial application and have conts to help to work with point-free style.
 
 ```
 allPass()
