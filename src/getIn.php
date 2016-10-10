@@ -7,15 +7,13 @@ const getIn = __NAMESPACE__.'\getIn';
 function getIn(...$args)
 {
     $fn = partial(function (array $xss, array $ks, $notfound = false) {
-        if (not(has(0, $ks))) {
-            return $notfound;
-        }
+        $success = function ($ks) use ($xss, $notfound) {
+            $fn = ifElse(isArray, placeholder(getIn, _, tail($ks), $notfound), id);
+            return $fn(get($xss, $ks[0], $notfound));
+        };
+        $fn = ifElse(has(0), $success, always($notfound));
 
-        $xs = get($xss, $ks[0], $notfound);
-
-        return is_array($xs)
-            ? getIn($xs, tail($ks), $notfound)
-            : $xs;
+        return $fn($ks);
     });
 
     return $fn(...$args);
