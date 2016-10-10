@@ -2,7 +2,10 @@
 
 namespace Prelude\Tests;
 
-use function Prelude\{partial, allPass, get, has};
+use function Prelude\partial;
+use function Prelude\allPass;
+use function Prelude\get;
+use function Prelude\has;
 
 class AllPassTest extends \PHPUnit_Framework_TestCase
 {

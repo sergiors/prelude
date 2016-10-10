@@ -2,7 +2,10 @@
 
 namespace Prelude\Tests;
 
-use function Prelude\{ifElse, get, has, always};
+use function Prelude\ifElse;
+use function Prelude\get;
+use function Prelude\has;
+use function Prelude\always;
 
 class IfElseTest extends \PHPUnit_Framework_TestCase
 {
