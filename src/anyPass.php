@@ -8,7 +8,7 @@ function anyPass(array $preds)
 {
     return function ($value) use ($preds) {
         return array_reduce($preds, function ($carry, callable $pred) use ($value) {
-            return true === $carry
+            return equals($carry, true)
                 ? $carry
                 : $pred($value);
         }, false);
