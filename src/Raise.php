@@ -6,11 +6,19 @@ final class Raise
 {
     public static function runtime()
     {
-        throw new \RuntimeException();
+        throw new Runtime();
     }
 
     public static function invalid()
     {
-        throw new \InvalidArgumentException();
+        throw new InvalidArgument();
     }
+}
+
+final class Runtime extends \RuntimeException
+{
+}
+
+final class InvalidArgument extends \InvalidArgumentException
+{
 }

@@ -4,6 +4,12 @@ namespace Prelude;
 
 const maybe = __NAMESPACE__.'\maybe';
 
+function maybe($value)
+{
+    $fn = ifElse(isNull, [Nothing::class, 'factory'], [Just::class, 'factory']);
+    return $fn($value);
+}
+
 interface MaybeInterface
 {
     /**
@@ -166,7 +172,7 @@ final class Nothing implements MaybeInterface
      */
     public function fromJust()
     {
-        throw new \RuntimeException();
+        Raise::Runtime();
     }
 
     /**
@@ -184,10 +190,4 @@ final class Nothing implements MaybeInterface
     {
         return $def;
     }
-}
-
-function maybe($value)
-{
-    $fn = ifElse(isNull, [Nothing::class, 'factory'], [Just::class, 'factory']);
-    return $fn($value);
 }
