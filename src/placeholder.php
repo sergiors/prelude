@@ -6,16 +6,18 @@ const placeholder = __NAMESPACE__.'\placeholder';
 
 function placeholder(callable $fn, ...$ps)
 {
-    $ks = pipe(filter(equals(_)), keys)($ps);
+    $filter = pipe(filter(equals(_)), keys);
+    $ks = $filter($ps);
 
+    $success = function (...$args) use ($fn, $ps, $ks) {
+        $replace = pipe(flip, map(get($args)), replace($ps));
+        $args = $replace($ks);
+        return $fn(...$args);
+    };
     $throw = function () {
         throw new \InvalidArgumentException();
     };
 
-    $success = function (...$args) use ($fn, $ps, $ks) {
-        $args = pipe(flip, map(get($args)), replace($ps))($ks);
-        return $fn(...$args);
-    };
-
-    return ifElse(equals([]), $throw, always($success))($ks);
+    $fn = ifElse(equals([]), $throw, always($success));
+    return $fn($ks);
 }

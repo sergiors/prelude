@@ -17,10 +17,12 @@ class PartialTest extends \PHPUnit_Framework_TestCase
 
         $result = partial($four, 1, 2, 3, 4);
 
+        $fn = partial($four);
+        $fnRest = partial($four, 1);
+
         $this->assertInstanceOf(\Closure::class, partial($four));
-        $this->assertInstanceOf(\Closure::class, partial($four)(1, 2));
-        $this->assertInstanceOf(\Closure::class, partial($four)(1, 2));
-        $this->assertEquals(10, partial($four)(1)(2)(3, 4));
+        $this->assertInstanceOf(\Closure::class, $fn(1, 2));
+        $this->assertEquals(10, $fnRest(2, 3, 4));
         $this->assertEquals(10, $result);
     }
 }

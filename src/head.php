@@ -10,5 +10,6 @@ function head(array $xss)
         throw new \InvalidArgumentException();
     };
 
-    return ifElse(equals([]), $throw, values)($xss)[0];
+    $fn = ifElse(equals([]), $throw, values);
+    return $fn($xss)[0];
 }

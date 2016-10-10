@@ -6,5 +6,6 @@ const map = __NAMESPACE__.'\map';
 
 function map(...$args)
 {
-    return partial('array_map')(...$args);
+    $fn =  partial('array_map');
+    return $fn(...$args);
 }

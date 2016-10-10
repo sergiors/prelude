@@ -6,7 +6,9 @@ const equals = __NAMESPACE__.'\equals';
 
 function equals(...$args)
 {
-    return partial(function ($a, $b) {
+    $fn = partial(function ($a, $b) {
         return $a === $b;
-    })(...$args);
+    });
+
+    return $fn(...$args);
 }

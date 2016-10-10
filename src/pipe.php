@@ -6,24 +6,11 @@ const pipe = '\pipe';
 
 function pipe(callable ...$callbacks)
 {
-    return new class(...$callbacks) {
-        private $callbacks;
+    return function ($payload) use ($callbacks) {
+        $restArgs = tail(func_get_args());
 
-        public function __construct(callable ...$callbacks)
-        {
-            $this->callbacks = $callbacks;
-        }
-
-        public function pipe(callable ...$callbacks)
-        {
-            return pipe(...array_merge($this->callbacks, $callbacks));
-        }
-
-        public function __invoke($payload)
-        {
-            return array_reduce($this->callbacks, function ($payload, $callback) {
-                return $callback($payload);
-            }, $payload);
-        }
+        return array_reduce($callbacks, function ($payload, $callback) use ($restArgs) {
+            return $callback(...array_merge([$payload], $restArgs));
+        }, $payload);
     };
 }

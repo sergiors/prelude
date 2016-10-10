@@ -6,5 +6,6 @@ const slice = __NAMESPACE__.'\slice';
 
 function slice(...$args)
 {
-    return partial('array_slice')(...$args);
+    $fn = partial('array_slice');
+    return $fn(...$args);
 }

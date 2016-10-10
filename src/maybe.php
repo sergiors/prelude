@@ -53,124 +53,141 @@ interface MaybeInterface
     public function maybe($def, callable $fn);
 }
 
-function maybe($value): MaybeInterface
+final class Just implements MaybeInterface
 {
-    if ($value instanceof MaybeInterface) {
-        return $value;
+    /**
+     * @var mixed
+     */
+    private $value;
+
+    /**
+     * @param mixed $value
+     *
+     * @return Just
+     */
+    public static function factory($value)
+    {
+        return new self($value);
     }
 
-    if (null === $value) {
-        return new class implements MaybeInterface {
-            /**
-             * {@inheritdoc}
-             */
-            public function bind(callable $fn)
-            {
-                return $this;
-            }
-
-            /**
-             * {@inheritdoc}
-             */
-            public function isJust()
-            {
-                return false;
-            }
-
-            /**
-             * {@inheritdoc}
-             */
-            public function isNothing()
-            {
-                return true;
-            }
-
-            /**
-             * {@inheritdoc}
-             */
-            public function fromJust()
-            {
-                throw new \RuntimeException();
-            }
-
-            /**
-             * {@inheritdoc}
-             */
-            public function fromMaybe($def)
-            {
-                return $def;
-            }
-
-            /**
-             * {@inheritdoc}
-             */
-            public function maybe($def, callable $fn)
-            {
-                return $def;
-            }
-        };
+    /**
+     * @param mixed $value
+     */
+    public function __construct($value)
+    {
+        $this->value = $value;
     }
 
-    return new class($value) implements MaybeInterface {
-        /**
-         * @var mixed
-         */
-        private $value;
+    /**
+     * {@inheritdoc}
+     */
+    public function bind(callable $fn)
+    {
+        return maybe($fn($this->value));
+    }
 
-        /**
-         * @param mixed $value
-         */
-        public function __construct($value)
-        {
-            $this->value = $value;
-        }
+    /**
+     * {@inheritdoc}
+     */
+    public function isJust()
+    {
+        return true;
+    }
 
-        /**
-         * {@inheritdoc}
-         */
-        public function bind(callable $fn)
-        {
-            return maybe($fn($this->value));
-        }
+    /**
+     * {@inheritdoc}
+     */
+    public function isNothing()
+    {
+        return false;
+    }
 
-        /**
-         * {@inheritdoc}
-         */
-        public function isJust()
-        {
-            return true;
-        }
+    /**
+     * {@inheritdoc}
+     */
+    public function fromJust()
+    {
+        return $this->value;
+    }
 
-        /**
-         * {@inheritdoc}
-         */
-        public function isNothing()
-        {
-            return false;
-        }
+    /**
+     * {@inheritdoc}
+     */
+    public function fromMaybe($def)
+    {
+        return $this->value;
+    }
 
-        /**
-         * {@inheritdoc}
-         */
-        public function fromJust()
-        {
-            return $this->value;
-        }
+    /**
+     * {@inheritdoc}
+     */
+    public function maybe($def, callable $fn)
+    {
+        return $fn($this->value);
+    }
+}
 
-        /**
-         * {@inheritdoc}
-         */
-        public function fromMaybe($def)
-        {
-            return $this->value;
-        }
+final class Nothing implements MaybeInterface
+{
+    /**
+     * @return Nothing
+     */
+    public static function factory()
+    {
+        return new self();
+    }
 
-        /**
-         * {@inheritdoc}
-         */
-        public function maybe($def, callable $fn)
-        {
-            return $fn($this->value);
-        }
-    };
+    /**
+     * {@inheritdoc}
+     */
+    public function bind(callable $fn)
+    {
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isJust()
+    {
+        return false;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isNothing()
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function fromJust()
+    {
+        throw new \RuntimeException();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function fromMaybe($def)
+    {
+        return $def;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function maybe($def, callable $fn)
+    {
+        return $def;
+    }
+}
+
+function maybe($value)
+{
+    $fn = ifElse(isNull, [Nothing::class, 'factory'], [Just::class, 'factory']);
+    return $fn($value);
 }

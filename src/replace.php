@@ -6,5 +6,6 @@ const replace = __NAMESPACE__.'\replace';
 
 function replace(...$args)
 {
-    return partial('array_replace')(...$args);
+    $fn = partial('array_replace');
+    return $fn(...$args);
 }
