@@ -12,12 +12,10 @@ function placeholder(callable $fn, ...$ps)
     $success = function (...$args) use ($fn, $ps, $ks) {
         $replace = pipe(flip, map(get($args)), replace($ps));
         $args = $replace($ks);
+
         return $fn(...$args);
     };
-    $throw = function () {
-        throw new \InvalidArgumentException();
-    };
 
-    $fn = ifElse(equals([]), $throw, always($success));
+    $fn = ifElse(equals([]), [Raise::class, 'invalid'], always($success));
     return $fn($ks);
 }

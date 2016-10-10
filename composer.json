@@ -20,6 +20,9 @@
         "phploc/phploc": "^3.0"
     },
     "autoload": {
+        "psr-4": {
+            "Prelude\\": "src"
+        },
         "files": [
             "src/consts.php",
             "src/allPass.php",
