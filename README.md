@@ -47,6 +47,10 @@ tail()
 typeof()
 ```
 
+Thanks
+------
+[Marcelo Camargo](https://github.com/haskellcamargo)
+
 License
 -------
 MIT
