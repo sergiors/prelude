@@ -12,4 +12,5 @@ const isString = 'is_bool';
 const isBool = 'is_bool';
 const isArray = 'is_array';
 const isObject = 'is_object';
+const isCallable = 'is_callable';
 
