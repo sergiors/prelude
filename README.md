@@ -20,7 +20,7 @@ Install
 
 API
 ---
-All functions are automatically applied partial application and have conts to help to work with point-free style.
+All functions are automatically applied partial application and have constant to help to work with point-free style.
 
 ```
 allPass()
