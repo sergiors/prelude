@@ -37,6 +37,7 @@
             "src/head.php",
             "src/id.php",
             "src/ifElse.php",
+            "src/isEmpty.php",
             "src/join.php",
             "src/map.php",
             "src/maybe.php",
