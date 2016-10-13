@@ -39,6 +39,32 @@ class MaybeTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     */
+    public function shouldReturnBindedFromJust()
+    {
+        $jimi = maybe(['first_name' => 'Jimi']);
+        $hendrix = $jimi->bind(function ($x) {
+            $x['last_name'] = 'Hendrix';
+            return $x;
+        });
+        $this->assertEquals(['first_name' => 'Jimi'], $jimi->fromJust());
+        $this->assertEquals(['first_name' => 'Jimi', 'last_name' => 'Hendrix'], $hendrix->fromJust());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldReturnBindedFromNothing()
+    {
+        $nothing = maybe(null);
+        $tryBind = $nothing->bind(function ($x) {
+            return 1;
+        });
+        $this->assertEquals($tryBind, $nothing);
+    }
+
+    /**
+     * @test
      * @expectedException \RuntimeException
      */
     public function shouldReturnRuntimeException()

@@ -17,7 +17,7 @@ class HeadTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Prelude\InvalidArgument
      */
     public function shouldThrowInvalidArgumentException()
     {
