@@ -1,0 +1,8 @@
+image: phpunit/phpunit:5.5.0
+
+pipelines:
+  default:
+    - step:
+        script:
+          - composer install
+          - phpunit -c phpunit.xml.dist
