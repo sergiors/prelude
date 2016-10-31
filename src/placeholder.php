@@ -9,13 +9,11 @@ function placeholder(callable $fn, ...$ps)
     $filter = pipe(filter(equals(_)), keys);
     $ks = $filter($ps);
 
-    $success = function (...$args) use ($fn, $ps, $ks) {
+    $success = always(function (...$args) use ($fn, $ps, $ks) {
         $replace = pipe(flip, map(get($args)), replace($ps));
-        $args = $replace($ks);
+        return $fn(...$replace($ks));
+    });
 
-        return $fn(...$args);
-    };
-
-    $fn = ifElse(equals([]), [Raise::class, 'invalid'], always($success));
+    $fn = ifElse(equals([]), [Raise::class, 'invalid'], $success);
     return $fn($ks);
 }
