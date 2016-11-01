@@ -6,6 +6,7 @@ const _ = '%';
 const keys = 'array_keys';
 const values = 'array_values';
 const flip = 'array_flip';
+const sum = 'array_sum';
 const isNull = 'is_null';
 const isInt = 'is_int';
 const isFloat = 'is_float';
