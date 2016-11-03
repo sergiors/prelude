@@ -6,12 +6,10 @@ const placeholder = __NAMESPACE__.'\placeholder';
 
 function placeholder(callable $fn, ...$ps)
 {
-    $filter = pipe(filter(equals(_)), keys);
-    $ks = $filter($ps);
+    $ks = call_user_func(pipe(filter(equals(_)), keys), $ps);
 
     $success = always(function (...$args) use ($fn, $ps, $ks) {
-        $replace = pipe(flip, map(get($args)), replace($ps));
-        return $fn(...$replace($ks));
+        return $fn(...call_user_func(pipe(flip, map(get($args)), replace($ps)), $ks));
     });
 
     $fn = ifElse(equals([]), [Raise::class, 'invalid'], $success);

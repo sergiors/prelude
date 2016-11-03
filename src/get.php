@@ -10,7 +10,7 @@ function get(...$args)
         $fn = ifElse(has($x), function (array $xss) use ($x) {
             return $xss[$x];
         }, always($notfound));
-        
+
         return $fn($xss);
     });
 

@@ -8,7 +8,10 @@ function find(...$args)
 {
     $fn = partial(function (callable $pred, array $xss) {
         $fn = ifElse(equals([]), always(null), function (array $xss) use ($pred) {
-            $fn = ifElse($pred, id, always(find($pred, tail($xss))));
+            $fn = ifElse($pred, id, function () use ($pred, $xss) {
+                return find($pred, tail($xss));
+            });
+
             return $fn(head($xss));
         });
 
