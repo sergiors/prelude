@@ -12,6 +12,6 @@ function placeholder(callable $fn, ...$ps)
         return $fn(...call_user_func(pipe(flip, map(get($args)), replace($ps)), $ks));
     });
 
-    $fn = ifElse(equals([]), [Raise::class, 'invalid'], $success);
-    return $fn($ks);
+    $test = ifElse(equals([]), [Raise::class, 'invalid'], $success);
+    return $test($ks);
 }
