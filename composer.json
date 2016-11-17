@@ -48,6 +48,7 @@
             "src/map.php",
             "src/maybe.php",
             "src/multiply.php",
+            "src/nextStep.php",
             "src/not.php",
             "src/partial.php",
             "src/pipe.php",
