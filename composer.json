@@ -1,12 +1,14 @@
 {
     "name": "prelude/prelude",
+    "description": "Functional library",
+    "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sérgio Rafael Siqueira",
             "email": "sergio@inbep.com.br"
         }
     ],
-    "license": "MIT",
     "require": {
         "php": ">=5.6"
     },

@@ -8,7 +8,8 @@ function nextStep(callable ...$callbacks)
 {
     return function ($payload) use ($callbacks) {
         $next = function ($payload) use ($callbacks) {
-            return call_user_func(nextStep(...tail($callbacks)), $payload);
+            $fn = nextStep(...tail($callbacks));
+            return $fn($payload);
         };
         $fn = ifElse(isCallable, function (callable $callback) use ($payload, $next) {
             return $callback($payload, $next);
