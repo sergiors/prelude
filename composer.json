@@ -29,6 +29,7 @@
             "src/always.php",
             "src/anyPass.php",
             "src/append.php",
+            "src/cond.php",
             "src/divide.php",
             "src/equals.php",
             "src/filter.php",
