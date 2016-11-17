@@ -2,7 +2,7 @@
 
 namespace Prelude;
 
-const append = '\append';
+const append = __NAMESPACE__.'\append';
 
 function append(...$args)
 {

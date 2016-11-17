@@ -2,7 +2,7 @@
 
 namespace Prelude;
 
-const prepend = '\prepend';
+const prepend = __NAMESPACE__.'\prepend';
 
 function prepend(...$args)
 {
