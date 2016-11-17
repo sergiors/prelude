@@ -47,6 +47,7 @@
             "src/map.php",
             "src/maybe.php",
             "src/multiply.php",
+            "src/nextStep.php",
             "src/not.php",
             "src/partial.php",
             "src/pipe.php",
@@ -55,7 +56,6 @@
             "src/reduce.php",
             "src/replace.php",
             "src/slice.php",
-            "src/successor.php",
             "src/tail.php",
             "src/toString.php",
             "src/typeof.php"

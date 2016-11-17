@@ -2,9 +2,9 @@
 
 namespace Prelude\Tests;
 
-use function Prelude\successor;
+use function Prelude\nextStep;
 
-class SuccessorTest extends \PHPUnit_Framework_TestCase
+class NextStepTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -16,9 +16,9 @@ class SuccessorTest extends \PHPUnit_Framework_TestCase
                 ? $x
                 : $next($x + 1);
         };
-        $successor = successor($inc, $inc, $inc, $inc, $inc);
+        $steps = nextStep($inc, $inc, $inc, $inc, $inc);
 
-        $this->assertEquals(4, $successor(1));
+        $this->assertEquals(4, $steps(1));
     }
 
     /**
@@ -26,7 +26,7 @@ class SuccessorTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnConcatString()
     {
-        $successor = successor(function ($x, $next) {
+        $steps = nextStep(function ($x, $next) {
             return $next("bar($x)");
         }, function ($x) {
             return "foo($x)";
@@ -34,7 +34,7 @@ class SuccessorTest extends \PHPUnit_Framework_TestCase
             return "buzz($x)";
         });
 
-        $this->assertEquals('foo(bar(fizz))', $successor('fizz'));
+        $this->assertEquals('foo(bar(fizz))', $steps('fizz'));
     }
 
     /**
@@ -42,12 +42,12 @@ class SuccessorTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnJustFirstCallback()
     {
-        $successor = successor(function ($x) {
+        $steps = nextStep(function ($x) {
             return $x * 2;
         }, function ($x) {
             return $x + 10;
         });
 
-        $this->assertEquals(10, $successor(5));
+        $this->assertEquals(10, $steps(5));
     }
 }

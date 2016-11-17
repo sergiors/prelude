@@ -2,13 +2,13 @@
 
 namespace Prelude;
 
-const successor = __NAMESPACE__.'\successor';
+const nextStep = __NAMESPACE__.'\nextStep';
 
-function successor(callable ...$callbacks)
+function nextStep(callable ...$callbacks)
 {
     return function ($payload) use ($callbacks) {
         $next = function ($payload) use ($callbacks) {
-            return call_user_func(successor(...tail($callbacks)), $payload);
+            return call_user_func(nextStep(...tail($callbacks)), $payload);
         };
         $fn = ifElse(isCallable, function (callable $callback) use ($payload, $next) {
             return $callback($payload, $next);
