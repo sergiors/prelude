@@ -1,8 +1,8 @@
 Prelude
 -------
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/b/sergiors/prelude/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/b/sergiors/prelude/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/b/sergiors/prelude/badges/coverage.png?b=master)](https://scrutinizer-ci.com/b/sergiors/prelude/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/b/sergiors/prelude/badges/build.png?b=master)](https://scrutinizer-ci.com/b/sergiors/prelude/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sergiors/prelude/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sergiors/prelude/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/sergiors/prelude/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sergiors/prelude/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/sergiors/prelude/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sergiors/prelude/build-status/master)
 
 Install
 -------
@@ -13,7 +13,7 @@ Install
 "repositories": [
     {
         "type": "vcs",
-        "url":  "git@bitbucket.org:sergiors/prelude.git"
+        "url":  "git@github.com:sergiors/prelude.git"
     }
 ]
 ```
@@ -27,6 +27,7 @@ allPass()
 always()
 anyPass()
 append()
+divide()
 equals()
 filter()
 find()
@@ -43,6 +44,7 @@ join()
 lt()
 map()
 maybe()
+multiply()
 not()
 partial()
 pipe()
