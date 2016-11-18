@@ -49,6 +49,7 @@
             "src/lt.php",
             "src/map.php",
             "src/maybe.php",
+            "src/merge.php",
             "src/multiply.php",
             "src/nextStep.php",
             "src/not.php",
