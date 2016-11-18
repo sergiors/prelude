@@ -42,7 +42,7 @@ echo $fn(100); // => water boils at 100°C
 use function Prelude\has;
 
 $hasName = has('name);
-echo $hasName(['name' => 'Jimi']); // => Jimi
+echo $hasName(['name' => 'Jimi']); // => true
 echo $hasName([]); // => false
 ```
 
@@ -98,6 +98,7 @@ join()
 lt()
 map()
 maybe()
+merge()
 multiply()
 nextStep()
 not()

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sergiors\Functional\Tests;
+namespace Prelude\Tests;
 
 use function Prelude\prepend;
 
