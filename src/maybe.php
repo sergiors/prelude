@@ -172,7 +172,7 @@ final class Nothing implements MaybeInterface
      */
     public function fromJust()
     {
-        Raise::runtime();
+        throw new Runtime();
     }
 
     /**

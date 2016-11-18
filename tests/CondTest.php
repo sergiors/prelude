@@ -25,4 +25,17 @@ class CondTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('nothing special happens at 50°C', $fn(50));
         $this->assertEquals('water boils at 100°C', $fn(100));
     }
+
+    /**
+     * @test
+     * @expectedException \Prelude\InvalidArgument
+     */
+    public function shouldThrowInvalidArgumentWhenAnyMatch()
+    {
+        $fn = cond([
+            [equals([]), always(true)]
+        ]);
+
+        $fn(true);
+    }
 }
