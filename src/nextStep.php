@@ -11,6 +11,7 @@ function nextStep(callable ...$callbacks)
             $fn = nextStep(...tail($callbacks));
             return $fn($payload);
         };
+
         $fn = ifElse(isCallable, function (callable $callback) use ($payload, $next) {
             return $callback($payload, $next);
         }, always($payload));
