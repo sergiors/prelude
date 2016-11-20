@@ -6,9 +6,9 @@ const multiply = __NAMESPACE__.'\multiply';
 
 function multiply(...$args)
 {
-    $fn = partial(function ($x, $y) {
+    $multiply = partial(function ($x, $y) {
         return $x * $y;
     });
 
-    return $fn(...$args);
+    return $multiply(...$args);
 }

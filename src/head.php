@@ -6,6 +6,6 @@ const head = __NAMESPACE__.'\head';
 
 function head(array $xss)
 {
-    $fn = ifElse(equals([]), [Raise::class, 'invalid'], values);
-    return $fn($xss)[0];
+    $head = ifElse(equals([]), [Raise::class, 'invalid'], values);
+    return $head($xss)[0];
 }

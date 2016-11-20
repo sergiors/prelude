@@ -4,8 +4,11 @@ namespace Prelude;
 
 const merge = __NAMESPACE__.'\merge';
 
+/**
+ * Just an alias.
+ */
 function merge(...$args)
 {
-    $fn = partial('array_merge');
-    return $fn(...$args);
+    $merge = partial('array_merge');
+    return $merge(...$args);
 }

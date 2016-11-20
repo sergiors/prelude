@@ -6,7 +6,7 @@ const ifElse = __NAMESPACE__.'\ifElse';
 
 function ifElse(...$args)
 {
-    $fn = partial(function (callable $pred, callable $success, callable $fail) {
+    $ifElse = partial(function (callable $pred, callable $success, callable $fail) {
         return function ($value = null) use ($pred, $success, $fail) {
             return $pred($value)
                 ? $success($value)
@@ -14,5 +14,5 @@ function ifElse(...$args)
         };
     });
 
-    return $fn(...$args);
+    return $ifElse(...$args);
 }

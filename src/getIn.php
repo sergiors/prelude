@@ -6,7 +6,7 @@ const getIn = __NAMESPACE__.'\getIn';
 
 function getIn(...$args)
 {
-    $fn = partial(function (array $xss, array $ks, $notfound = false) {
+    $getIn = partial(function (array $xss, array $ks, $notfound = false) {
         $lazy = function (array $ks) use ($xss, $notfound) {
             $fn = pipe(
                 head,
@@ -25,5 +25,5 @@ function getIn(...$args)
         return $fn($ks);
     });
 
-    return $fn(...$args);
+    return $getIn(...$args);
 }

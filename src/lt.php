@@ -6,9 +6,9 @@ const lt = __NAMESPACE__.'\lr';
 
 function lt(...$args)
 {
-    $fn = partial(function ($x, $y) {
+    $lt = partial(function ($x, $y) {
         return $x < $y;
     });
 
-    return $fn(...$args);
+    return $lt(...$args);
 }

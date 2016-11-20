@@ -6,7 +6,7 @@ const isEmpty = __NAMESPACE__.'\isEmpty';
 
 function isEmpty($x)
 {
-    $fn = anyPass([
+    $isEmpty = anyPass([
         isNull,
         equals(''),
         equals(0),
@@ -15,5 +15,5 @@ function isEmpty($x)
         equals([]),
         equals(false)
     ]);
-    return $fn($x);
+    return $isEmpty($x);
 }

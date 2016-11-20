@@ -6,7 +6,7 @@ const find = __NAMESPACE__.'\find';
 
 function find(...$args)
 {
-    $fn = partial(function (callable $pred, array $xss) {
+    $find = partial(function (callable $pred, array $xss) {
         $lazy = function () use ($xss, $pred) {
             return find($pred, tail($xss));
         };
@@ -20,5 +20,5 @@ function find(...$args)
         return $fn(get($xss, 0, []));
     });
 
-    return $fn(...$args);
+    return $find(...$args);
 }

@@ -6,7 +6,7 @@ const get = __NAMESPACE__.'\get';
 
 function get(...$args)
 {
-    $fn = partial(function (array $xss, $x, $notfound = false) {
+    $get = partial(function (array $xss, $x, $notfound = false) {
         $fn = ifElse(has($x), function (array $xss) use ($x) {
             return $xss[$x];
         }, always($notfound));
@@ -14,5 +14,5 @@ function get(...$args)
         return $fn($xss);
     });
 
-    return $fn(...$args);
+    return $get(...$args);
 }

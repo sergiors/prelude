@@ -4,8 +4,11 @@ namespace Prelude;
 
 const join = __NAMESPACE__.'\join';
 
+/**
+ * Just an alias.
+ */
 function join(...$args)
 {
-    $fn = partial('join');
-    return $fn(...$args);
+    $join = partial('join');
+    return $join(...$args);
 }

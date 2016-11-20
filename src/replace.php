@@ -4,8 +4,11 @@ namespace Prelude;
 
 const replace = __NAMESPACE__.'\replace';
 
+/**
+ * Just an alias.
+ */
 function replace(...$args)
 {
-    $fn = partial('array_replace');
-    return $fn(...$args);
+    $replace = partial('array_replace');
+    return $replace(...$args);
 }

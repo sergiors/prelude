@@ -4,11 +4,14 @@ namespace Prelude;
 
 const reduce = __NAMESPACE__.'\reduce';
 
+/**
+ * Almost an alias. It's solve the arguments order.
+ */
 function reduce(...$args)
 {
-    $fn = partial(function (callable $fn, array $xss, $initial = null) {
+    $reduce = partial(function (callable $fn, array $xss, $initial = null) {
         return array_reduce($xss, $fn, $initial);
     });
 
-    return $fn(...$args);
+    return $reduce(...$args);
 }

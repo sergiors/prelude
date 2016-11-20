@@ -4,8 +4,11 @@ namespace Prelude;
 
 const slice = __NAMESPACE__.'\slice';
 
+/**
+ * Just an alias.
+ */
 function slice(...$args)
 {
-    $fn = partial('array_slice');
-    return $fn(...$args);
+    $slice = partial('array_slice');
+    return $slice(...$args);
 }
