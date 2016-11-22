@@ -5,7 +5,7 @@ namespace Prelude;
 const split = __NAMESPACE__.'\split';
 
 /**
- * Just an alias.
+ * Almost an alias.
  */
 function split(...$args)
 {
