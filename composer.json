@@ -62,6 +62,7 @@
             "src/reduce.php",
             "src/replace.php",
             "src/slice.php",
+            "src/split.php",
             "src/tail.php",
             "src/toString.php",
             "src/typeof.php"
