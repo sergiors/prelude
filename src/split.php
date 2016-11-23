@@ -12,5 +12,6 @@ function split(...$args)
     $split = partial(function ($string, $separator, $limit = PHP_INT_MAX) {
         return explode($separator, $string, $limit);
     });
+
     return $split(...$args);
 }

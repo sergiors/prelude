@@ -65,7 +65,8 @@
             "src/split.php",
             "src/tail.php",
             "src/toString.php",
-            "src/typeof.php"
+            "src/typeof.php",
+            "src/when.php"
         ]
     },
     "autoload-dev": {

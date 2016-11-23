@@ -115,6 +115,7 @@ split()
 tail()
 toString()
 typeof()
+when()
 ```
 
 #### Constants from native functions
