@@ -6,7 +6,7 @@ const placeholder = __NAMESPACE__.'\placeholder';
 
 function placeholder(callable $callback, ...$ps)
 {
-    $ks = call_user_func(pipe(filter(equals(_)), keys), $ps);
+    $ks = apply(pipe(filter(equals(_)), keys), $ps);
 
     $proxy = always(function (...$args) use ($callback, $ps, $ks) {
         $replace = pipe(flip, map(get($args)), replace($ps));
