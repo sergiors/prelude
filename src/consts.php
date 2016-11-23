@@ -17,3 +17,4 @@ const isScalar = 'is_scalar';
 const isArray = 'is_array';
 const isObject = 'is_object';
 const isCallable = 'is_callable';
+const isResource = 'is_resource';
