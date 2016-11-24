@@ -7,7 +7,7 @@ const nextStep = __NAMESPACE__.'\nextStep';
 function nextStep(callable ...$callbacks)
 {
     return function ($payload) use ($callbacks) {
-        $next = function ($payload) use ($callbacks) {
+        $next = function ($payload = null) use ($callbacks) {
             $fn = nextStep(...tail($callbacks));
             return $fn($payload);
         };
