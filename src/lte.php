@@ -2,7 +2,7 @@
 
 namespace Prelude;
 
-const lte = __NAMESPACE__.'\lre';
+const lte = __NAMESPACE__.'\lte';
 
 function lte(...$args)
 {
