@@ -4,7 +4,7 @@ use function Prelude\partial;
 
 /**
  * @Revs(1000)
- * @Iterations(5)
+ * @Iterations(10)
  */
 class PartialBench
 {
@@ -18,13 +18,15 @@ class PartialBench
         $rest(50);
     }
 
-    public function benchPartialNativeFn()
+    public function benchNative2Args()
     {
-        $alpha = ['a', 'b', 'c', 'd', 'f'];
-        $fn = partial('array_slice');
+        $fn = function ($x) {
+            return function ($y) use ($x) {
+                return $x + $y;
+            };
+        };
 
-        $fn($alpha, 2);
-        $fn($alpha, -2, 1);
-        $fn($alpha, 0, 3);
+        $rest = $fn(10);
+        $rest(50);
     }
 }
