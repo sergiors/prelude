@@ -117,6 +117,7 @@ split()
 tail()
 toString()
 typeof()
+unless()
 when()
 ```
 

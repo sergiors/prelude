@@ -68,6 +68,7 @@
             "src/tail.php",
             "src/toString.php",
             "src/typeof.php",
+            "src/unless.php",
             "src/when.php"
         ]
     },

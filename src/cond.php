@@ -4,6 +4,9 @@ namespace Prelude;
 
 const cond = __NAMESPACE__.'\cond';
 
+/**
+ * @see http://elixir-lang.org/getting-started/case-cond-and-if.html#cond
+ */
 function cond(array $pairs)
 {
     return function ($value) use ($pairs) {
