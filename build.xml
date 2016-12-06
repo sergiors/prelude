@@ -17,6 +17,14 @@
         </exec>
     </target>
 
+    <target name="bench">
+        <exec executable="${project.bindir}/phpbench" passthru="true" checkreturn="true" >
+            <arg value="run" />
+            <arg value="--report=aggregate" />
+            <arg value="${project.basedir}/benchmarks" />
+        </exec>
+    </target>
+
     <target name="tests">
         <exec command="${project.bindir}/phpunit --testsuite unit" passthru="true" checkreturn="true" />
     </target>
