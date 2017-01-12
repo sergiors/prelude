@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const divide = __NAMESPACE__.'\divide';
 
-function divide(...$args)
+function divide($x)
 {
-    $fn = partial(function ($x, $y) {
+    return function ($y) use ($x) {
         return $x / $y;
-    });
-
-    return $fn(...$args);
+    };
 }

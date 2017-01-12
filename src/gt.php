@@ -4,11 +4,9 @@ namespace Prelude;
 
 const gt = __NAMESPACE__.'\gt';
 
-function gt(...$args)
+function gt($x)
 {
-    $gt = partial(function ($x, $y) {
+    return function ($y) use ($x) {
         return $x > $y;
-    });
-
-    return $gt(...$args);
+    };
 }

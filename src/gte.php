@@ -4,11 +4,9 @@ namespace Prelude;
 
 const gte = __NAMESPACE__.'\gte';
 
-function gte(...$args)
+function gte($x)
 {
-    $gte = partial(function ($x, $y) {
+    return function ($y) use ($x) {
         return $x >= $y;
-    });
-
-    return $gte(...$args);
+    };
 }

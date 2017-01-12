@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const ifElse = __NAMESPACE__.'\ifElse';
@@ -7,15 +9,15 @@ const ifElse = __NAMESPACE__.'\ifElse';
 /**
  * @see http://elixir-lang.org/getting-started/case-cond-and-if.html#if-and-unless
  */
-function ifElse(...$args)
+function ifElse(callable $pred)
 {
-    $ifElse = partial(function (callable $pred, callable $success, callable $fail) {
-        return function ($x = null) use ($pred, $success, $fail) {
-            return $pred($x)
-                ? $success($x)
-                : $fail($x);
+    return function (callable $succfn) use ($pred) {
+        return function (callable $failfn) use ($pred, $succfn) {
+            return function ($x = null) use ($pred, $succfn, $failfn) {
+                return $pred($x)
+                    ? $succfn($x)
+                    : $failfn($x);
+            };
         };
-    });
-
-    return $ifElse(...$args);
+    };
 }

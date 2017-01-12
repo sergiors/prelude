@@ -16,10 +16,10 @@ class IfElseTest extends \PHPUnit_Framework_TestCase
     {
         $ns = ['name' => 'James Tiberius Kirk'];
         $upper = function (array $xss) {
-            return strtoupper(get($xss, 'name'));
+            return strtoupper(get($xss)('name'));
         };
 
-        $expected = ifElse(has('name'), $upper, always(false));
+        $expected = ifElse(has('name'))($upper)(always(false));
         $this->assertEquals('JAMES TIBERIUS KIRK', $expected($ns));
     }
 }

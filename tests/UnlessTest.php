@@ -16,7 +16,7 @@ class UnlessTest extends \PHPUnit_Framework_TestCase
             return $x + 1;
         };
         // never run $plus
-        $this->assertEquals([1, 2, 3], unless(isArray, $plus, [1, 2, 3]));
+        $this->assertEquals([1, 2, 3], unless(isArray)($plus)([1, 2, 3]));
     }
 
     /**
@@ -27,6 +27,6 @@ class UnlessTest extends \PHPUnit_Framework_TestCase
         $plus = function ($x) {
             return $x + 1;
         };
-        $this->assertEquals(2, unless(isArray, $plus, 1));
+        $this->assertEquals(2, unless(isArray)($plus)(1));
     }
 }

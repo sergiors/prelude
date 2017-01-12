@@ -17,9 +17,9 @@ class HasTest extends \PHPUnit_Framework_TestCase
             'year_old' => false,
         ];
 
-        $this->assertTrue(has('username', $hendrix));
-        $this->assertTrue(has('telephone', $hendrix));
-        $this->assertTrue(has('year_old', $hendrix));
+        $this->assertTrue(has('username')($hendrix));
+        $this->assertTrue(has('telephone')($hendrix));
+        $this->assertTrue(has('year_old')($hendrix));
     }
 
     /**
@@ -27,7 +27,7 @@ class HasTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnFalse()
     {
-        $this->assertFalse(has('telephone', []));
-        $this->assertFalse(has('telephone', ['telephone' => null]));
+        $this->assertFalse(has('telephone')([]));
+        $this->assertFalse(has('telephone')(['telephone' => null]));
     }
 }

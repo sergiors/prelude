@@ -28,9 +28,9 @@ class CondTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \Prelude\InvalidArgument
+     * @expectedException \InvalidArgumentException
      */
-    public function shouldThrowInvalidArgumentWhenAnyMatch()
+    public function shouldThrowInvalidArgumentExceptionWhenAnyMatch()
     {
         $fn = cond([
             [equals([]), always(true)]

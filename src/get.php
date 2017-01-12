@@ -1,18 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const get = __NAMESPACE__.'\get';
 
-function get(...$args)
+function get(array $xss)
 {
-    $get = partial(function (array $xss, $x, $notfound = false) {
-        $fn = ifElse(has($x), function (array $xss) use ($x) {
-            return $xss[$x];
-        }, always($notfound));
-
-        return $fn($xss);
-    });
-
-    return $get(...$args);
+    return function ($x, $notfound = false) use ($xss) {
+        return $xss[$x] ?? $notfound;
+    };
 }

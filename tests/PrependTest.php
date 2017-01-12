@@ -11,6 +11,6 @@ class PrependTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnPrepend()
     {
-        $this->assertEquals(prepend('fee', ['fi', 'fo', 'fum']), ['fee', 'fi', 'fo', 'fum']);
+        $this->assertEquals(prepend('fee')(['fi', 'fo', 'fum']), ['fee', 'fi', 'fo', 'fum']);
     }
 }

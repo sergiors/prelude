@@ -7,13 +7,13 @@ const unless = __NAMESPACE__.'\unless';
 /**
  * @see http://elixir-lang.org/getting-started/case-cond-and-if.html#if-and-unless
  */
-function unless(...$args)
+function unless(callable $pred)
 {
-    $unless = partial(function (callable $pred, callable $fail, $x) {
-        return $pred($x)
-            ? $x
-            : $fail($x);
-    });
-
-    return $unless(...$args);
+    return function (callable $failfn) use ($pred) {
+        return function ($x) use ($pred, $failfn) {
+            return $pred($x)
+                ? $x
+                : $failfn($x);
+        };
+    };
 }

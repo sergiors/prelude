@@ -4,11 +4,9 @@ namespace Prelude;
 
 const has = __NAMESPACE__.'\has';
 
-function has(...$args)
+function has($x)
 {
-    $has = partial(function ($x, array $xss) {
+    return function (array $xss) use ($x) {
         return isset($xss[$x]);
-    });
-
-    return $has(...$args);
+    };
 }

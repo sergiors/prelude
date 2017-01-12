@@ -11,8 +11,8 @@ class LteTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnTrue()
     {
-        $this->assertTrue(lte(9, 10));
-        $this->assertTrue(lte(9, 9));
+        $this->assertTrue(lte(9)(10));
+        $this->assertTrue(lte(9)(9));
     }
 
     /**
@@ -20,6 +20,6 @@ class LteTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnFalse()
     {
-        $this->assertFalse(lte(10, 9));
+        $this->assertFalse(lte(10)(9));
     }
 }

@@ -14,7 +14,7 @@ function pipe(callable ...$callbacks)
         $restArgs = tail(func_get_args());
 
         return array_reduce($callbacks, function ($payload, $callback) use ($restArgs) {
-            return $callback(...prepend($payload, $restArgs));
+            return $callback(...array_merge([$payload], $restArgs));
         }, $payload);
     };
 }

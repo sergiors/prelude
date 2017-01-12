@@ -11,7 +11,7 @@ class DivideTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnDivided()
     {
-        $this->assertEquals(1, divide(10, 10));
-        $this->assertEquals(3.5, divide(7, 2));
+        $this->assertEquals(1, divide(10)(10));
+        $this->assertEquals(3.5, divide(7)(2));
     }
 }

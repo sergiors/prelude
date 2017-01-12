@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const head = __NAMESPACE__.'\head';
 
 function head(array $xss)
 {
-    $head = ifElse(equals([]), [Raise::class, 'invalid'], function (array $xss) {
-        return array_values(array_slice($xss, 0, 1))[0];
-    });
+    if ([] === $xss) {
+        throw new \InvalidArgumentException();
+    }
 
-    return $head($xss);
+    return array_values(array_slice($xss, 0, 1))[0];
 }

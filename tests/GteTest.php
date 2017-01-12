@@ -11,8 +11,8 @@ class GteTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnTrue()
     {
-        $this->assertTrue(gte(10, 10));
-        $this->assertTrue(gte(10, 9));
+        $this->assertTrue(gte(10)(10));
+        $this->assertTrue(gte(10)(9));
     }
 
     /**
@@ -20,6 +20,6 @@ class GteTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnFalse()
     {
-        $this->assertFalse(gte(10, 11));
+        $this->assertFalse(gte(10)(11));
     }
 }

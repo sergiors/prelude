@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const typeof = __NAMESPACE__.'\typeof';
 
-function typeof(...$args)
+function typeof($type)
 {
-    $typeof = partial(function ($type, $object) {
+    return function ($object) use ($type) {
         return $object instanceof $type;
-    });
-
-    return $typeof(...$args);
+    };
 }

@@ -52,7 +52,9 @@ use const Prelude\isEmpty;
 use function Prelude\ifElse;
 use function Prelude\always;
 
-$fn = ifElse(isEmpty, always(true), always(false));
+$fn = ifElse(isEmpty)
+    (always(true))
+    (always(false));
 echo $fn([]); // => true
 echo $fn(null); // => true
 echo $fn(false); // => true

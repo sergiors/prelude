@@ -4,11 +4,9 @@ namespace Prelude;
 
 const lt = __NAMESPACE__.'\lt';
 
-function lt(...$args)
+function lt($x)
 {
-    $lt = partial(function ($x, $y) {
+    return function ($y) use ($x) {
         return $x < $y;
-    });
-
-    return $lt(...$args);
+    };
 }

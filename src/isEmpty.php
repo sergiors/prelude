@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const isEmpty = __NAMESPACE__.'\isEmpty';
 
 function isEmpty($x)
 {
-    $isEmpty = anyPass([
+    return anyPass([
         isNull,
         equals(''),
         equals(0),
@@ -14,6 +16,5 @@ function isEmpty($x)
         equals('0'),
         equals([]),
         equals(false)
-    ]);
-    return $isEmpty($x);
+    ])($x);
 }

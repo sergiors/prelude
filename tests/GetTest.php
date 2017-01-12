@@ -11,7 +11,7 @@ class GetTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnIndex()
     {
-        $this->assertEquals('a', get(['a' => 'a', 'b' => 'b'], 'a'));
+        $this->assertEquals('a', get(['a' => 'a', 'b' => 'b'])('a'));
     }
 
     /**
@@ -19,6 +19,6 @@ class GetTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnNotfound()
     {
-        $this->assertEquals('missing', get(['a' => 'a', 'b' => 'b'], 'c', 'missing'));
+        $this->assertEquals('missing', get(['a' => 'a', 'b' => 'b'])('c', 'missing'));
     }
 }

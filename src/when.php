@@ -1,15 +1,18 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const when = __NAMESPACE__.'\when';
 
-function when(...$args)
+function when(callable $pred)
 {
-    $when = partial(function (callable $pred, callable $success, $x) {
-        $fn = ifElse($pred, $success, id);
-        return $fn($x);
-    });
-
-    return $when(...$args);
+    return function (callable $succfn) use ($pred) {
+        return function ($x) use ($pred, $succfn) {
+            return $pred($x)
+                ? $succfn($x)
+                : $x;
+        };
+    };
 }

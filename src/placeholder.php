@@ -13,6 +13,6 @@ function placeholder(callable $callback, ...$ps)
         return $callback(...$replace($ks));
     });
 
-    $fn = ifElse(equals([]), [Raise::class, 'invalid'], $proxy);
+    $fn = ifElse(equals([]))([Raise::class, 'invalid'])($proxy);
     return $fn($ks);
 }

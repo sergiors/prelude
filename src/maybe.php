@@ -5,14 +5,16 @@ namespace Prelude;
 const maybe = __NAMESPACE__.'\maybe';
 
 /**
- * @param mixed $value
+ * @param mixed $x
  *
  * @return MaybeInterface
  */
-function maybe($value)
+function maybe($x)
 {
-    $fn = ifElse(isNull, [Nothing::class, 'factory'], [Just::class, 'factory']);
-    return $fn($value);
+    return ifElse(isNull)
+        ([Nothing::class, 'factory'])
+        ([Just::class, 'factory'])
+        ($x);
 }
 
 interface MaybeInterface

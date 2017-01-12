@@ -11,7 +11,7 @@ class MultiplyTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnMultiplied()
     {
-        $this->assertEquals(100, multiply(10, 10));
-        $this->assertEquals(192, multiply(32, 6));
+        $this->assertEquals(100, multiply(10)(10));
+        $this->assertEquals(192, multiply(32)(6));
     }
 }

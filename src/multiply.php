@@ -4,11 +4,9 @@ namespace Prelude;
 
 const multiply = __NAMESPACE__.'\multiply';
 
-function multiply(...$args)
+function multiply($x)
 {
-    $multiply = partial(function ($x, $y) {
+    return function ($y) use ($x) {
         return $x * $y;
-    });
-
-    return $multiply(...$args);
+    };
 }

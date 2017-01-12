@@ -4,11 +4,9 @@ namespace Prelude;
 
 const lte = __NAMESPACE__.'\lte';
 
-function lte(...$args)
+function lte($x)
 {
-    $lte = partial(function ($x, $y) {
+    return function ($y) use ($x) {
         return $x <= $y;
-    });
-
-    return $lte(...$args);
+    };
 }

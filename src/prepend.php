@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const prepend = __NAMESPACE__.'\prepend';
 
-function prepend(...$args)
+function prepend($x)
 {
-    $prepend = partial(function ($x, array $xs) {
+    return function (array $xs) use ($x) {
         return array_merge([$x], $xs);
-    });
-
-    return $prepend(...$args);
+    };
 }

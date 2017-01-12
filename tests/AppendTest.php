@@ -11,7 +11,7 @@ class AppendTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnAppened()
     {
-        $this->assertEquals(append('tests', ['write', 'more']), ['write', 'more', 'tests']);
+        $this->assertEquals(append('tests')(['write', 'more']), ['write', 'more', 'tests']);
 
         $append = append(['tests']);
         $this->assertEquals($append(['write', 'more']), ['write', 'more', ['tests']]);

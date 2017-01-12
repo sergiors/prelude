@@ -4,21 +4,19 @@ namespace Prelude;
 
 const find = __NAMESPACE__.'\find';
 
-function find(...$args)
+function find(callable $pred)
 {
-    $find = partial(function (callable $pred, array $xss) {
-        $lazy = function () use ($xss, $pred) {
-            return find($pred, tail($xss));
-        };
+    return function (array $xss) use ($pred) {
+        $xs = get($xss)(0, []);
 
-        $fn = cond([
-            [$pred, id],
-            [equals([]), always(null)],
-            [always(true), $lazy]
-        ]);
+        if ([] === $xs) {
+            return null;
+        }
 
-        return $fn(get($xss, 0, []));
-    });
+        if ($pred($xs)) {
+            return $xs;
+        }
 
-    return $find(...$args);
+        return find($pred)(tail($xss));
+    };
 }

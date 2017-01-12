@@ -11,7 +11,7 @@ class LtTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnTrue()
     {
-        $this->assertTrue(lt(9, 10));
+        $this->assertTrue(lt(9)(10));
     }
 
     /**
@@ -19,6 +19,6 @@ class LtTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnFalse()
     {
-        $this->assertFalse(lt(10, 9));
+        $this->assertFalse(lt(10)(9));
     }
 }

@@ -20,7 +20,7 @@ class AllPassTest extends \PHPUnit_Framework_TestCase
         ];
 
         $propEq = partial(function ($k, $v, array $xss) {
-            return get($xss, $k) === $v;
+            return get($xss)($k) === $v;
         });
 
         $y = allPass([has('from'), has('to')]);
