@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const join = __NAMESPACE__.'\join';
 
-/**
- * Just an alias.
- */
-function join(...$args)
+function join(array $xss)
 {
-    $join = partial('join');
-    return $join(...$args);
+    return function (string $glue) use ($xss) {
+        return implode($glue, $xss);
+    };
 }

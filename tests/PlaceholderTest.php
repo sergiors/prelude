@@ -12,10 +12,10 @@ class PlaceholderTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldWaitByPlaceholder()
     {
-        $slice = placeholder('array_slice', _, 2);
+        $slice = placeholder('array_slice')(_, 2);
         $this->assertEquals([30, 40, 50], $slice([10, 20, 30, 40, 50]));
 
-        $substr = placeholder('substr', _, 2, _);
+        $substr = placeholder('substr')(_, 2, _);
         $this->assertSame('cde', $substr('abcdef', -1));
         $this->assertSame('c', $substr('abcdef', 1));
     }
@@ -26,6 +26,6 @@ class PlaceholderTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldThrowInvalidArgumentException()
     {
-        placeholder('substr', 'abcdef', 2);
+        placeholder('substr')('abcdef')(2);
     }
 }

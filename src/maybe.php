@@ -179,7 +179,7 @@ final class Nothing implements MaybeInterface
      */
     public function fromJust()
     {
-        throw new Runtime();
+        throw new \RuntimeException();
     }
 
     /**

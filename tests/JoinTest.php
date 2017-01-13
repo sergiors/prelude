@@ -11,6 +11,6 @@ class JoinTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnJoined()
     {
-        $this->assertEquals('JamesKirkHank', join(['James', 'Kirk', 'Hank'], ''));
+        $this->assertEquals('JamesKirkHank', join(['James', 'Kirk', 'Hank'])(''));
     }
 }

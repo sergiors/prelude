@@ -23,16 +23,12 @@
         "phpbench/phpbench": "@dev"
     },
     "autoload": {
-        "psr-4": {
-            "Prelude\\": "src"
-        },
         "files": [
             "src/consts.php",
             "src/allPass.php",
             "src/always.php",
             "src/anyPass.php",
             "src/append.php",
-            "src/apply.php",
             "src/compose.php",
             "src/cond.php",
             "src/divide.php",
@@ -55,7 +51,6 @@
             "src/lte.php",
             "src/map.php",
             "src/maybe.php",
-            "src/memoize.php",
             "src/merge.php",
             "src/multiply.php",
             "src/not.php",

@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const merge = __NAMESPACE__.'\merge';
 
-/**
- * Just an alias.
- */
-function merge(...$args)
+function merge(array $x)
 {
-    $merge = partial('array_merge');
-    return $merge(...$args);
+    return function (array $y) use ($x) {
+        return array_merge($x, $y);
+    };
 }

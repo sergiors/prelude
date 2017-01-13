@@ -1,17 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const split = __NAMESPACE__.'\split';
 
-/**
- * Almost an alias.
- */
-function split(...$args)
+function split(string $string)
 {
-    $split = partial(function ($string, $separator, $limit = PHP_INT_MAX) {
+    return function (string $separator, $limit = PHP_INT_MAX) use ($string) {
         return explode($separator, $string, $limit);
-    });
-
-    return $split(...$args);
+    };
 }

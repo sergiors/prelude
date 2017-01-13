@@ -11,9 +11,12 @@ class SplitTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnSplited()
     {
-        $splited = split('The quick brown fox jumped over the lazy dog', ' ');
+        $splited = split('The quick brown fox jumped over the lazy dog')(' ');
 
-        $this->assertEquals(['The', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog'], $splited);
+        $this->assertEquals(
+            ['The', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog'],
+            $splited
+        );
         $this->assertCount(9, $splited);
     }
 }

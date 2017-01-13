@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const gte = __NAMESPACE__.'\gte';

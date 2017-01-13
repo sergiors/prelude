@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const map = __NAMESPACE__.'\map';
 
-/**
- * Just an alias.
- */
-function map(...$args)
+function map(callable $callback)
 {
-    $map =  partial('array_map');
-    return $map(...$args);
+    return function (array $xss, array ...$rest) use ($callback) {
+        return array_map($callback, $xss, ...$rest);
+    };
 }

@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const replace = __NAMESPACE__.'\replace';
 
-/**
- * Just an alias.
- */
-function replace(...$args)
+function replace(array $x)
 {
-    $replace = partial('array_replace');
-    return $replace(...$args);
+    return function (array $y, ...$rest) use ($x) {
+        return array_replace($x, $y, ...$rest);
+    };
 }

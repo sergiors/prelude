@@ -12,8 +12,8 @@ class IndexOfTest extends \PHPUnit_Framework_TestCase
     public function shouldReturnTheIndex()
     {
         $users = ['James', 'Sully', 'Kirk'];
-        $this->assertEquals(0, indexOf('James', $users));
-        $this->assertEquals(1, indexOf('Sully', $users));
+        $this->assertEquals(0, indexOf('James')($users));
+        $this->assertEquals(1, indexOf('Sully')($users));
     }
 
     /**
@@ -21,6 +21,6 @@ class IndexOfTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnFalse()
     {
-        $this->assertEquals(false, indexOf('Jimmi', []));
+        $this->assertEquals(false, indexOf('Jimmi')([]));
     }
 }

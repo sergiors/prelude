@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const slice = __NAMESPACE__.'\slice';
 
-/**
- * Just an alias.
- */
-function slice(...$args)
+function slice(array $xss)
 {
-    $slice = partial('array_slice');
-    return $slice(...$args);
+    return function (int $offset, $length = null, $preserve_keys = false) use ($xss) {
+        return array_slice($xss, $offset, $length, $preserve_keys);
+    };
 }

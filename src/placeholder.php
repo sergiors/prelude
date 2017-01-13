@@ -1,18 +1,23 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const placeholder = __NAMESPACE__.'\placeholder';
 
-function placeholder(callable $callback, ...$ps)
+function placeholder(callable $callback)
 {
-    $ks = apply(pipe(filter(equals(_)), keys), $ps);
+    return function (...$placeholders) use ($callback) {
+        $ks = pipe(filter(equals(_)), keys)($placeholders);
 
-    $proxy = always(function (...$args) use ($callback, $ps, $ks) {
-        $replace = pipe(flip, map(get($args)), replace($ps));
-        return $callback(...$replace($ks));
-    });
+        if ([] === $ks) {
+            throw new \InvalidArgumentException();
+        }
 
-    $fn = ifElse(equals([]))([Raise::class, 'invalid'])($proxy);
-    return $fn($ks);
+        return function (...$args) use ($callback, $placeholders, $ks) {
+            $replace = pipe(flip, map(get($args)), replace($placeholders));
+            return $callback(...$replace($ks));
+        };
+    };
 }

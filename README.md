@@ -75,16 +75,16 @@ echo tail([1, 2, 3]); // => [2, 3]
 
 API
 ---
-All functions are automatically applied partial application and have constant to help to work with point-free style.
+All functions is unitary, exception when the second argument is optional and have constant to help to work with point-free style.
 
 ```
 allPass()
 always()
 anyPass()
 append()
-apply()
 compose()
 cond()
+consts()
 divide()
 equals()
 filter()

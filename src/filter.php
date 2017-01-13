@@ -1,17 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const filter = __NAMESPACE__.'\filter';
 
-/**
- * Almost an alias. It's solve the arguments order.
- */
-function filter(...$args)
+function filter(callable $callback)
 {
-    $filter = partial(function (callable $fn, array $xss, $flag = 0) {
-        return array_filter($xss, $fn, $flag);
-    });
-
-    return $filter(...$args);
+    return function (array $xss, $flag = 0) use ($callback) {
+        return array_filter($xss, $callback, $flag);
+    };
 }

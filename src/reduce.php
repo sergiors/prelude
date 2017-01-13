@@ -1,17 +1,14 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const reduce = __NAMESPACE__.'\reduce';
 
-/**
- * Almost an alias. It's solve the arguments order.
- */
-function reduce(...$args)
+function reduce(callable $callback)
 {
-    $reduce = partial(function (callable $fn, array $xss, $initial = null) {
-        return array_reduce($xss, $fn, $initial);
-    });
-
-    return $reduce(...$args);
+    return function (array $xss, $initial = null) use ($callable) {
+        return array_reduce($xss, $callable, $initial);
+    };
 }
