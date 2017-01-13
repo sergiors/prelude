@@ -56,7 +56,6 @@
             "src/not.php",
             "src/partial.php",
             "src/pipe.php",
-            "src/placeholder.php",
             "src/prepend.php",
             "src/reduce.php",
             "src/replace.php",
