@@ -7,7 +7,7 @@ use function Prelude\ifElse;
  * @Revs(1000)
  * @Iterations(10)
  */
-class EqualsBench
+class IfElseBench
 {
     public function benchPartial()
     {

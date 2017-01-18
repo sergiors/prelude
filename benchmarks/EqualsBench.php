@@ -9,7 +9,7 @@ use function Prelude\equals;
  */
 class EqualsBench
 {
-    public function benchPartial2Args()
+    public function benchPartial()
     {
         $equals = partial(function ($x, $y) {
             return $x === $y;
@@ -18,7 +18,7 @@ class EqualsBench
         $equals(10)(50);
     }
 
-    public function benchNative2Args()
+    public function benchNative()
     {
         equals(10)(50);
     }

@@ -8,7 +8,7 @@ use function Prelude\partial;
  */
 class PartialBench
 {
-    public function benchPartial2Args()
+    public function benchPartial()
     {
         $fn = partial(function ($x, $y) {
             return $x + $y;
@@ -18,7 +18,7 @@ class PartialBench
         $rest(50);
     }
 
-    public function benchNative2Args()
+    public function benchNative()
     {
         $fn = function ($x) {
             return function ($y) use ($x) {
