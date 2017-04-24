@@ -35,4 +35,18 @@ class PipeTest extends \PHPUnit_Framework_TestCase
         
         $this->assertSame($fn('x'), 'baz(bar(foo(x)))');
     }
+
+    /**
+     * @test
+     */
+    public function whenRestParamsIsArray()
+    {
+        $c = ['foo' => 10];
+        $p = function (int $x, array $c) {
+            return $x + $c['foo'];
+        };
+        $f = pipe($p, $p, $p);
+
+        $this->assertEquals(40, $f(10, $c));
+    }
 }

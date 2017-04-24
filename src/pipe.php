@@ -10,11 +10,10 @@ const pipe = '\pipe';
  */
 function pipe(callable ...$callbacks)
 {
-    return function ($payload) use ($callbacks) {
-        $rest = tail(func_get_args());
-
-        return array_reduce($callbacks, function ($payload, $callback) use ($rest) {
-            return $callback(...array_merge([$payload], $rest));
-        }, $payload);
+    return function ($payload, ...$restParams) use ($callbacks) {
+        return array_reduce($callbacks,
+            function ($payload, callable $callback) use ($restParams) {
+                return $callback(...array_merge([$payload], $restParams));
+            }, $payload);
     };
 }

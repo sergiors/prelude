@@ -11,10 +11,9 @@ const maybe = __NAMESPACE__.'\maybe';
  */
 function maybe($x)
 {
-    return ifElse(isNull)
-        ([Nothing::class, 'factory'])
-        ([Just::class, 'factory'])
-        ($x);
+    return null === $x
+        ? new Nothing()
+        : new Just($x);
 }
 
 interface MaybeInterface
@@ -75,16 +74,6 @@ final class Just implements MaybeInterface
 
     /**
      * @param mixed $value
-     *
-     * @return Just
-     */
-    public static function factory($value)
-    {
-        return new self($value);
-    }
-
-    /**
-     * @param mixed $value
      */
     public function __construct($value)
     {
@@ -142,14 +131,6 @@ final class Just implements MaybeInterface
 
 final class Nothing implements MaybeInterface
 {
-    /**
-     * @return Nothing
-     */
-    public static function factory()
-    {
-        return new self();
-    }
-
     /**
      * {@inheritdoc}
      */
