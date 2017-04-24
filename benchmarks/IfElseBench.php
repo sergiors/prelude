@@ -32,8 +32,8 @@ class IfElseBench
     public function benchNative()
     {
         ifElse(function ($x) {
-            return $x === 10;
-        })
+                return $x === 10;
+            })
             (function () {
                 return true;
             })

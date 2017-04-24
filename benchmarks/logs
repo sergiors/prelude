@@ -1,0 +1,18 @@
+\EqualsBench
+
+    benchPartial                  I9 P0 	[μ Mo]/r: 24.086 23.920 (μs) 	[μSD μRSD]/r: 2.096μs 8.70%
+    benchNative                   I9 P0 	[μ Mo]/r: 3.985 3.772 (μs) 	[μSD μRSD]/r: 0.422μs 10.59%
+
+\IfElseBench
+
+    benchPartial                  I9 P0 	[μ Mo]/r: 43.948 44.801 (μs) 	[μSD μRSD]/r: 1.478μs 3.36%
+    benchNative                   I9 P0 	[μ Mo]/r: 12.512 12.025 (μs) 	[μSD μRSD]/r: 1.088μs 8.70%
+
+\PartialBench
+
+    benchPartial                  I9 P0 	[μ Mo]/r: 23.440 23.931 (μs) 	[μSD μRSD]/r: 1.194μs 5.10%
+    benchNative                   I9 P0 	[μ Mo]/r: 6.565 6.161 (μs) 	[μSD μRSD]/r: 0.817μs 12.45%
+
+6 subjects, 60 iterations, 6,000 revs, 0 rejects
+(best [mean mode] worst) = 3.373 [19.089 19.102] 4.800 (μs)
+⅀T: 1,145.353μs μSD/r 1.183μs μRSD/r: 8.149%
