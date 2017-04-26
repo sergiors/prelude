@@ -6,9 +6,9 @@ namespace Prelude;
 
 const prepend = __NAMESPACE__.'\prepend';
 
-function prepend($x)
+function prepend($x): \Closure
 {
-    return function (array $xs) use ($x) {
+    return function (array $xs) use ($x): array {
         return array_merge([$x], $xs);
     };
 }

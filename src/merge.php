@@ -6,9 +6,9 @@ namespace Prelude;
 
 const merge = __NAMESPACE__.'\merge';
 
-function merge(array $x)
+function merge(array $x): \Closure
 {
-    return function (array $y) use ($x) {
+    return function (array $y) use ($x): array {
         return array_merge($x, $y);
     };
 }

@@ -6,9 +6,9 @@ namespace Prelude;
 
 const reduce = __NAMESPACE__.'\reduce';
 
-function reduce(callable $callback)
+function reduce(callable $callback): \Closure
 {
-    return function (array $xss, $initial = null) use ($callable) {
-        return array_reduce($xss, $callable, $initial);
+    return function (array $xss, $initial = null) use ($callback) {
+        return array_reduce($xss, $callback, $initial);
     };
 }

@@ -6,7 +6,7 @@ namespace Prelude;
 
 const indexOf = __NAMESPACE__.'\indexOf';
 
-function indexOf($needle)
+function indexOf($needle): \Closure
 {
     return function (array $haystack, bool $strict = false) use ($needle) {
         return array_search($needle, $haystack, $strict);

@@ -6,9 +6,9 @@ namespace Prelude;
 
 const append = __NAMESPACE__.'\append';
 
-function append($x)
+function append($x): \Closure
 {
-    return function (array $xs) use ($x) {
+    return function (array $xs) use ($x): array {
         return array_merge($xs, [$x]);
     };
 }

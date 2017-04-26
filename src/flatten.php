@@ -4,7 +4,7 @@ namespace Prelude;
 
 const flatten = __NAMESPACE__.'\flatten';
 
-function flatten(array $xss)
+function flatten(array $xss): array
 {
     return array_reduce($xss, function (array $prev, $x) {
         return is_array($x)

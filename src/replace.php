@@ -6,9 +6,9 @@ namespace Prelude;
 
 const replace = __NAMESPACE__.'\replace';
 
-function replace(array $x)
+function replace(array $x): \Closure
 {
-    return function (array $y, ...$rest) use ($x) {
-        return array_replace($x, $y, ...$rest);
+    return function (array $y, array ...$args) use ($x): array {
+        return array_replace($x, $y, ...$args);
     };
 }

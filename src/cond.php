@@ -9,22 +9,22 @@ const cond = __NAMESPACE__.'\cond';
 /**
  * @see http://elixir-lang.org/getting-started/case-cond-and-if.html#cond
  */
-function cond(array $pairs)
+function cond(array $pairs): \Closure
 {
     return function ($x) use ($pairs) {
         $pair = head($pairs);
-
-        if (!isset($pair[1])) {
-            throw new \InvalidArgumentException();
-        }
 
         $lazyfn = function ($x) use ($pairs) {
             $xs = tail($pairs);
             return cond($xs)($x);
         };
 
-        return ifElse($pair[0])
-            ($pair[1])
+        $throw = function() {
+            throw new \InvalidArgumentException();
+        };
+
+        return ifElse($pair[0] ?? $throw())
+            ($pair[1] ?? $throw())
             ($lazyfn)
             ($x);
     };

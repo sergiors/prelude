@@ -6,9 +6,9 @@ namespace Prelude;
 
 const allPass = __NAMESPACE__.'\allPass';
 
-function allPass(array $preds)
+function allPass(array $preds): \Closure
 {
-    return function ($x) use ($preds) {
+    return function ($x) use ($preds): bool {
         return array_reduce($preds, function (bool $prev, callable $pred) use ($x) {
             return $prev && $pred($x);
         }, true);

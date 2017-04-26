@@ -6,7 +6,7 @@ namespace Prelude;
 
 const isEmpty = __NAMESPACE__.'\isEmpty';
 
-function isEmpty($x)
+function isEmpty($x): bool
 {
     return anyPass([
         isNull,

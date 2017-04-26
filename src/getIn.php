@@ -6,7 +6,7 @@ namespace Prelude;
 
 const getIn = __NAMESPACE__.'\getIn';
 
-function getIn(array $xss)
+function getIn(array $xss): \Closure
 {
     return function (array $ks, $notfound = false) use ($xss) {
         if (!isset($ks[0])) {

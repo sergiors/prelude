@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const id = __NAMESPACE__.'\id';
 
-function id($id)
+function id($x)
 {
-    return $id;
+    return $x;
 }

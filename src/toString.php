@@ -6,7 +6,7 @@ namespace Prelude;
 
 const toString = __NAMESPACE__.'\toString';
 
-function toString($x)
+function toString($x): string
 {
     return (string) $x;
 }

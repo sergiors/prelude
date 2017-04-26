@@ -1,6 +1,7 @@
 {
     "name": "prelude/prelude",
     "description": "Functional library",
+    "keywords": ["functional-programming", "monad"],
     "type": "library",
     "license": "MIT",
     "authors": [

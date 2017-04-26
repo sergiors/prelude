@@ -6,9 +6,9 @@ namespace Prelude;
 
 const gte = __NAMESPACE__.'\gte';
 
-function gte($x)
+function gte($x): \Closure
 {
-    return function ($y) use ($x) {
+    return function ($y) use ($x): bool {
         return $x >= $y;
     };
 }

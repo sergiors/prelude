@@ -6,7 +6,7 @@ namespace Prelude;
 
 const get = __NAMESPACE__.'\get';
 
-function get(array $xss)
+function get(array $xss): \Closure
 {
     return function ($x, $notfound = false) use ($xss) {
         return $xss[$x] ?? $notfound;

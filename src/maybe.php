@@ -1,15 +1,12 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const maybe = __NAMESPACE__.'\maybe';
 
-/**
- * @param mixed $x
- *
- * @return MaybeInterface
- */
-function maybe($x)
+function maybe($x): MaybeInterface
 {
     return null === $x
         ? new Nothing()
@@ -18,48 +15,29 @@ function maybe($x)
 
 interface MaybeInterface
 {
-    /**
-     * @param callable $fn
-     *
-     * @return MaybeInterface
-     */
-    public function bind(callable $fn);
+    public function bind(callable $fn): MaybeInterface;
 
     /**
-     * The isJust function returns True iff its argument is of the form Just _.
-     *
      * isJust :: Maybe a -> Bool
      */
-    public function isJust();
+    public function isJust(): bool;
 
     /**
-     * The isNothing function returns True iff its argument is Nothing.
-     *
      * isNothing :: Maybe a -> Bool
      */
-    public function isNothing();
+    public function isNothing(): bool;
 
     /**
-     * The fromJust function extracts the element out of a Just and throws an error if its argument is Nothing.
-     *
      * fromJust :: Maybe a -> a
      */
     public function fromJust();
 
     /**
-     * The fromMaybe function takes a default value and and Maybe value.
-     * If the Maybe is Nothing, it returns the default values; otherwise,
-     * it returns the value contained in the Maybe.
-     *
      * fromMaybe :: a -> Maybe a -> a
      */
     public function fromMaybe($def);
 
     /**
-     * The maybe function takes a default value, a function, and a Maybe value.
-     * If the Maybe value is Nothing, the function returns the default value.
-     * Otherwise, it applies the function to the value inside the Just and returns the result.
-     *
      * maybe :: b -> (a -> b) -> Maybe a -> b
      */
     public function maybe($def, callable $fn);
@@ -67,62 +45,38 @@ interface MaybeInterface
 
 final class Just implements MaybeInterface
 {
-    /**
-     * @var mixed
-     */
     private $value;
 
-    /**
-     * @param mixed $value
-     */
     public function __construct($value)
     {
         $this->value = $value;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function bind(callable $fn)
+    public function bind(callable $fn): MaybeInterface
     {
         return maybe($fn($this->value));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isJust()
+    public function isJust(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isNothing()
+    public function isNothing(): bool
     {
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function fromJust()
     {
         return $this->value;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function fromMaybe($def)
     {
         return $this->value;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function maybe($def, callable $fn)
     {
         return $fn($this->value);
@@ -131,49 +85,31 @@ final class Just implements MaybeInterface
 
 final class Nothing implements MaybeInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function bind(callable $fn)
+    public function bind(callable $fn): MaybeInterface
     {
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isJust()
+    public function isJust(): bool
     {
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isNothing()
+    public function isNothing(): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function fromJust()
     {
         throw new \RuntimeException();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function fromMaybe($def)
     {
         return $def;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function maybe($def, callable $fn)
     {
         return $def;

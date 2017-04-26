@@ -4,9 +4,9 @@ namespace Prelude;
 
 const lte = __NAMESPACE__.'\lte';
 
-function lte($x)
+function lte($x): \Closure
 {
-    return function ($y) use ($x) {
+    return function ($y) use ($x): bool {
         return $x <= $y;
     };
 }

@@ -8,7 +8,7 @@ const pipe = '\pipe';
  * Performs left-to-right function composition.
  * The leftmost function may have any arity; the remaining functions must be unary.
  */
-function pipe(callable ...$callbacks)
+function pipe(callable ...$callbacks): \Closure
 {
     return function ($payload, ...$restParams) use ($callbacks) {
         return array_reduce($callbacks,

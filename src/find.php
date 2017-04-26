@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Prelude;
 
 const find = __NAMESPACE__.'\find';
 
-function find(callable $pred)
+function find(callable $pred): \Closure
 {
     return function (array $xss) use ($pred) {
         $xs = get($xss)(0, []);
