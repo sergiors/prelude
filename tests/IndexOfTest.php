@@ -21,6 +21,6 @@ class IndexOfTest extends \PHPUnit_Framework_TestCase
      */
     public function shouldReturnFalse()
     {
-        $this->assertEquals(false, indexOf('Jimmi')([]));
+        $this->assertEquals(-1, indexOf('Jimmi')([]));
     }
 }
