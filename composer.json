@@ -58,6 +58,7 @@
             "src/partial.php",
             "src/pipe.php",
             "src/prepend.php",
+            "src/prop.php",
             "src/reduce.php",
             "src/replace.php",
             "src/slice.php",
