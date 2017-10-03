@@ -13,10 +13,10 @@ function ifElse(callable $pred): \Closure
 {
     return function (callable $succfn) use ($pred): \Closure {
         return function (callable $failfn) use ($pred, $succfn): \Closure {
-            return function ($x = null) use ($pred, $succfn, $failfn) {
-                return $pred($x)
-                    ? $succfn($x)
-                    : $failfn($x);
+            return function (...$args) use ($pred, $succfn, $failfn) {
+                return $pred(...$args)
+                    ? $succfn(...$args)
+                    : $failfn(...$args);
             };
         };
     };
