@@ -14,18 +14,17 @@ function cond(array $pairs): \Closure
     return function ($x) use ($pairs) {
         $pair = head($pairs);
 
-        $lazyfn = function ($x) use ($pairs) {
-            $xs = tail($pairs);
-            return cond($xs)($x);
+        $lazy = function ($x) use ($pairs) {
+            return cond(tail($pairs))($x);
         };
 
         $throw = function() {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('Missing parameter.');
         };
 
         return ifElse($pair[0] ?? $throw())
             ($pair[1] ?? $throw())
-            ($lazyfn)
+            ($lazy)
             ($x);
     };
 }

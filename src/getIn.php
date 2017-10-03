@@ -9,7 +9,7 @@ const getIn = __NAMESPACE__.'\getIn';
 function getIn(array $xss): \Closure
 {
     return function (array $ks, $notfound = false) use ($xss) {
-        if (!isset($ks[0])) {
+        if (false === isset($ks[0])) {
             return $notfound;
         }
 
