@@ -13,7 +13,7 @@ function getIn(array $xss): \Closure
             return $notfound;
         }
 
-        $xs = get($xss)(head($ks), $notfound);
+        $xs = $xss[head($ks)] ?? $notfound;
         
         return is_array($xs)
             ? getIn($xs)(tail($ks), $notfound)

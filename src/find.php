@@ -9,10 +9,8 @@ const find = __NAMESPACE__.'\find';
 function find(callable $pred): \Closure
 {
     return function (array $xss) use ($pred) {
-        $xs = get($xss)(0, []);
-
-        if ([] === $xs) {
-            return null;
+        if ([] === $xs = $xss[0] ?? []) {
+            return -1;
         }
 
         if ($pred($xs)) {

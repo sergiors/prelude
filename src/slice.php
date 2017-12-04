@@ -8,7 +8,11 @@ const slice = __NAMESPACE__.'\slice';
 
 function slice(array $xss): \Closure
 {
-    return function (int $offset, $length = null, $preserve_keys = false) use ($xss): array {
+    return function (
+        int $offset,
+        ?int $length = null,
+        bool $preserve_keys = false
+    ) use ($xss): array {
         return array_slice($xss, $offset, $length, $preserve_keys);
     };
 }

@@ -8,7 +8,7 @@ const filter = __NAMESPACE__.'\filter';
 
 function filter(callable $callback): \Closure
 {
-    return function (array $xss, $flag = 0) use ($callback): array {
+    return function (array $xss, int $flag = 0) use ($callback): array {
         return array_filter($xss, $callback, $flag);
     };
 }
