@@ -11,20 +11,13 @@ const cond = __NAMESPACE__.'\cond';
  */
 function cond(array $pairs): \Closure
 {
-    return function ($x) use ($pairs) {
-        $pair = head($pairs);
+    [$if, $then] = head($pairs);
 
-        $lazy = function ($x) use ($pairs) {
-            return cond(tail($pairs))($x);
-        };
-
-        $throw = function() {
-            throw new \InvalidArgumentException('Missing parameter.');
-        };
-
-        return ifElse($pair[0] ?? $throw())
-            ($pair[1] ?? $throw())
-            ($lazy)
-            ($x);
+    $else = function ($x) use ($pairs) {
+        return cond(tail($pairs))($x);
     };
+
+    return ifElse($if)
+        ($then)
+        ($else);
 }

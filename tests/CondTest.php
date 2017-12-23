@@ -38,17 +38,4 @@ class CondTest extends \PHPUnit\Framework\TestCase
 
         $fn(true);
     }
-
-    /**
-     * @test
-     * @expectedException \InvalidArgumentException
-     */
-    public function whenDoNotPassSecoundArgument()
-    {
-        $fn = cond([
-            [equals([])]
-        ]);
-
-        $fn(true);
-    }
 }

@@ -6,13 +6,13 @@ namespace Prelude;
 
 const partial = __NAMESPACE__.'\partial';
 
-function partial(callable $fn, ...$args)
+function partial(callable $callback, ...$args)
 {
-    $arity = (new \ReflectionFunction($fn))->getNumberOfRequiredParameters();
+    $arity = (new \ReflectionFunction($callback))->getNumberOfRequiredParameters();
 
     return $args[$arity - 1] ?? false
-        ? $fn(...$args)
-        : function (...$restArgs) use ($fn, $args) {
-            return partial($fn, ...array_merge($args, $restArgs));
+        ? $callback(...$args)
+        : function (...$rest) use ($callback, $args) {
+            return partial($callback, ...array_merge($args, $rest));
         };
 }
