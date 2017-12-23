@@ -8,10 +8,10 @@ const when = __NAMESPACE__.'\when';
 
 function when(callable $pred): \Closure
 {
-    return function (callable $succfn) use ($pred): \Closure {
-        return function ($x) use ($pred, $succfn) {
+    return function (callable $callback) use ($pred): \Closure {
+        return function ($x) use ($pred, $callback) {
             return $pred($x)
-                ? $succfn($x)
+                ? $callback($x)
                 : $x;
         };
     };

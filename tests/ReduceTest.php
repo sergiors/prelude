@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\reduce;
 
-class ReduceTest extends \PHPUnit_Framework_TestCase
+class ReduceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

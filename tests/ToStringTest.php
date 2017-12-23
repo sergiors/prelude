@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\toString;
 
-class ToStringTest extends \PHPUnit_Framework_TestCase
+class ToStringTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

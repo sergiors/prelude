@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\replace;
 
-class ReplaceTest extends \PHPUnit_Framework_TestCase
+class ReplaceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\multiply;
 
-class MultiplyTest extends \PHPUnit_Framework_TestCase
+class MultiplyTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

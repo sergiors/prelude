@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\tail;
 
-class TailTest extends \PHPUnit_Framework_TestCase
+class TailTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

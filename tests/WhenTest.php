@@ -5,7 +5,7 @@ namespace Prelude\Tests;
 use function Prelude\when;
 use function Prelude\pipe;
 
-class WhenTest extends \PHPUnit_Framework_TestCase
+class WhenTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

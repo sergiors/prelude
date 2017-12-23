@@ -7,7 +7,7 @@ use function Prelude\get;
 use function Prelude\has;
 use function Prelude\always;
 
-class IfElseTest extends \PHPUnit_Framework_TestCase
+class IfElseTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
@@ -16,7 +16,7 @@ class IfElseTest extends \PHPUnit_Framework_TestCase
     {
         $ns = ['name' => 'James Tiberius Kirk'];
         $upper = function (array $xss) {
-            return strtoupper(get($xss)('name'));
+            return strtoupper($xss['name']);
         };
 
         $expected = ifElse(has('name'))($upper)(always(false));

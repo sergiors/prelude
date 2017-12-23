@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\merge;
 
-class MergeTest extends \PHPUnit_Framework_TestCase
+class MergeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

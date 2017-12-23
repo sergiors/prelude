@@ -11,11 +11,11 @@ const unless = __NAMESPACE__.'\unless';
  */
 function unless(callable $pred): \Closure
 {
-    return function (callable $failfn) use ($pred): \Closure {
-        return function ($x) use ($pred, $failfn) {
+    return function (callable $callback) use ($pred): \Closure {
+        return function ($x) use ($pred, $callback) {
             return $pred($x)
                 ? $x
-                : $failfn($x);
+                : $callback($x);
         };
     };
 }

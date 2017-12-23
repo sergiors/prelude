@@ -6,9 +6,9 @@ namespace Prelude;
 
 const split = __NAMESPACE__.'\split';
 
-function split(string $string): \Closure
+function split(string $str): \Closure
 {
-    return function (string $separator, $limit = PHP_INT_MAX) use ($string): array {
-        return explode($separator, $string, $limit);
+    return function (string $separator, $limit = PHP_INT_MAX) use ($str): array {
+        return explode($separator, $str, $limit);
     };
 }

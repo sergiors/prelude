@@ -7,7 +7,7 @@ use function Prelude\partial;
 use function Prelude\equals;
 use function Prelude\has;
 
-class AnyPassTest extends \PHPUnit_Framework_TestCase
+class AnyPassTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

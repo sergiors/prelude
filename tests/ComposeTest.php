@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\compose;
 
-class ComposeTest extends \PHPUnit_Framework_TestCase
+class ComposeTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

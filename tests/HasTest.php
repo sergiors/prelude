@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\has;
 
-class HasTest extends \PHPUnit_Framework_TestCase
+class HasTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

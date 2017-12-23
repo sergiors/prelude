@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\partial;
 
-class PartialTest extends \PHPUnit_Framework_TestCase
+class PartialTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

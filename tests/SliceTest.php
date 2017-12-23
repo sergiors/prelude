@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\slice;
 
-class SliceTest extends \PHPUnit_Framework_TestCase
+class SliceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

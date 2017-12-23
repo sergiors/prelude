@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\split;
 
-class SplitTest extends \PHPUnit_Framework_TestCase
+class SplitTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

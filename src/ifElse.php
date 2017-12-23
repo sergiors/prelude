@@ -9,14 +9,14 @@ const ifElse = __NAMESPACE__.'\ifElse';
 /**
  * @see http://elixir-lang.org/getting-started/case-cond-and-if.html#if-and-unless
  */
-function ifElse(callable $pred): \Closure
+function ifElse(callable $if): \Closure
 {
-    return function (callable $succfn) use ($pred): \Closure {
-        return function (callable $failfn) use ($pred, $succfn): \Closure {
-            return function (...$args) use ($pred, $succfn, $failfn) {
-                return $pred(...$args)
-                    ? $succfn(...$args)
-                    : $failfn(...$args);
+    return function (callable $then) use ($if): \Closure {
+        return function (callable $else) use ($if, $then): \Closure {
+            return function (...$args) use ($if, $then, $else) {
+                return $if(...$args)
+                    ? $then(...$args)
+                    : $else(...$args);
             };
         };
     };

@@ -6,7 +6,7 @@ use function Prelude\cond;
 use function Prelude\equals;
 use function Prelude\always;
 
-class CondTest extends \PHPUnit_Framework_TestCase
+class CondTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

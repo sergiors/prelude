@@ -6,7 +6,9 @@ namespace Prelude;
 
 const not = __NAMESPACE__.'\not';
 
-function not($x): bool
+function not(callable $callback): \Closure
 {
-    return !$x;
+    return function ($x) use ($callback): bool {
+        return !$callback($x);
+    };
 }

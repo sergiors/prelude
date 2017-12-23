@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\divide;
 
-class DivideTest extends \PHPUnit_Framework_TestCase
+class DivideTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

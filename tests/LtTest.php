@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\lt;
 
-class LtTest extends \PHPUnit_Framework_TestCase
+class LtTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

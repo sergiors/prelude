@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\id;
 
-class IdTest extends \PHPUnit_Framework_TestCase
+class IdTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

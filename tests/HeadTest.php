@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\head;
 
-class HeadTest extends \PHPUnit_Framework_TestCase
+class HeadTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

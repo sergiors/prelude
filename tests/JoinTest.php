@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\join;
 
-class JoinTest extends \PHPUnit_Framework_TestCase
+class JoinTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

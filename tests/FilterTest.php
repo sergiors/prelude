@@ -5,7 +5,7 @@ namespace Prelude\Tests;
 use function Prelude\filter;
 use function Prelude\equals;
 
-class FilterTest extends \PHPUnit_Framework_TestCase
+class FilterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

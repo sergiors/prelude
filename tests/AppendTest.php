@@ -4,7 +4,7 @@ namespace Sergiors\Functional\Tests;
 
 use function Prelude\append;
 
-class AppendTest extends \PHPUnit_Framework_TestCase
+class AppendTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\gt;
 
-class GtTest extends \PHPUnit_Framework_TestCase
+class GtTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

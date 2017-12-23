@@ -7,7 +7,7 @@ use function Prelude\allPass;
 use function Prelude\get;
 use function Prelude\has;
 
-class AllPassTest extends \PHPUnit_Framework_TestCase
+class AllPassTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
@@ -20,7 +20,7 @@ class AllPassTest extends \PHPUnit_Framework_TestCase
         ];
 
         $propEq = partial(function ($k, $v, array $xss) {
-            return get($xss)($k) === $v;
+            return ($xss[$k] ?? false) === $v;
         });
 
         $y = allPass([has('from'), has('to')]);

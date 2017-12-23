@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\typeof;
 
-class TypeofTest extends \PHPUnit_Framework_TestCase
+class TypeofTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

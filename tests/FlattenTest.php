@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\flatten;
 
-class FlattenTest extends \PHPUnit_Framework_TestCase
+class FlattenTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

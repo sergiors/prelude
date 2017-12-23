@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\isEmpty;
 
-class IsEmptyTest extends \PHPUnit_Framework_TestCase
+class IsEmptyTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

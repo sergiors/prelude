@@ -2,22 +2,20 @@
 
 namespace Prelude\Tests;
 
-use function Prelude\not;
+use function Prelude\{not, equals};
 
-class NotTest extends \PHPUnit_Framework_TestCase
+class NotTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
      */
-    public function shouldReturnTrue()
+    public function test()
     {
-        $this->assertTrue(not(false));
-    }
-    /**
-     * @test
-     */
-    public function shouldReturnFalse()
-    {
-        $this->assertFalse(not(true));
+        $this->assertTrue(
+            not(equals(1))(2)
+        );
+        $this->assertFalse(
+            not(equals(true))(true)
+        );
     }
 }

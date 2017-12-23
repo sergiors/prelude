@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\drop;
 
-class DropTest extends \PHPUnit_Framework_TestCase
+class DropTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

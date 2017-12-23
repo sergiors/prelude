@@ -5,7 +5,7 @@ namespace Prelude\Tests;
 use function Prelude\unless;
 use const Prelude\isArray;
 
-class UnlessTest extends \PHPUnit_Framework_TestCase
+class UnlessTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

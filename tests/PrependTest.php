@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\prepend;
 
-class PrependTest extends \PHPUnit_Framework_TestCase
+class PrependTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test

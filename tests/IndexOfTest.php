@@ -4,7 +4,7 @@ namespace Prelude\Tests;
 
 use function Prelude\indexOf;
 
-class IndexOfTest extends \PHPUnit_Framework_TestCase
+class IndexOfTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
