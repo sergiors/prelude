@@ -11,7 +11,7 @@ use Closure;
 function allPass(array $preds): Closure
 {
     return function (...$args) use ($preds): bool {
-        return array_reduce($preds, function (bool $prev, callable $pred) use ($args) {
+        return array_reduce($preds, function (bool $prev, callable $pred) use ($args): bool {
             return $prev && $pred(...$args);
         }, true);
     };

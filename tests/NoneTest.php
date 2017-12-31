@@ -16,11 +16,11 @@ class NoneTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->assertFalse(
-            none($isEven)([1, 3, 5, 7, 9, 10])
+            none($isEven)([1, 3, 5, 7, 8, 11])
         );
 
-        $this->assertFalse(
-            none($isOdd)([1, 3, 5, 7, 9, 11])
+        $this->assertTrue(
+            none($isOdd)([2, 4, 6, 8])
         );
     }
 }

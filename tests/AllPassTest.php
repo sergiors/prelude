@@ -9,10 +9,7 @@ use function Prelude\has;
 
 class AllPassTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @test
-     */
-    public function shouldPass()
+    public function test()
     {
         $placeholders = [
             'to' => 'xxx@xxx.com',

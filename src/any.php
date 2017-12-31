@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Prelude;
 
-const all = __NAMESPACE__.'\all';
+const any = __NAMESPACE__.'\any';
 
 use Closure;
 
-function all(callable $pred): Closure
+function any(callable $pred): Closure
 {
     return function (array $xs) use ($pred): bool {
         return array_reduce($xs, function (bool $prev, $x) use ($pred): bool {
-            return $prev && $pred($x);
-        }, true);
+            return $prev ?: $pred($x);
+        }, false);
     };
 }

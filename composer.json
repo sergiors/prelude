@@ -29,6 +29,7 @@
             "src/all.php",
             "src/allPass.php",
             "src/always.php",
+            "src/any.php",
             "src/anyPass.php",
             "src/append.php",
             "src/compose.php",

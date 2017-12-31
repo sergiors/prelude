@@ -10,7 +10,5 @@ use Closure;
 
 function none(callable $pred): Closure
 {
-    return function (array $xss) use ($pred): bool {
-        return -1 === find($pred)($xss);
-    };
+    return not(any($pred));
 }
