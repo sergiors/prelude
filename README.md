@@ -70,8 +70,10 @@ API
 All functions is unitary, exception when the second argument is optional. It has constants to help you to work with point-free style.
 
 ```
+all()
 allPass()
 always()
+any()
 anyPass()
 append()
 compose()

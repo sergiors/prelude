@@ -54,6 +54,7 @@
             "src/lt.php",
             "src/lte.php",
             "src/map.php",
+            "src/memoize.php",
             "src/merge.php",
             "src/multiply.php",
             "src/none.php",
@@ -78,5 +79,13 @@
         "psr-4": {
             "Prelude\\Tests\\": "tests"
         }
+    },
+    "scripts": {
+        "tests": [
+            "@php vendor/bin/phpunit"
+        ],
+        "qa": [
+            "@php vendor/bin/phing qa"
+        ]
     }
 }
