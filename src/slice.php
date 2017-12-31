@@ -6,7 +6,9 @@ namespace Prelude;
 
 const slice = __NAMESPACE__.'\slice';
 
-function slice(array $xss): \Closure
+use Closure;
+
+function slice(array $xss): Closure
 {
     return function (
         int $offset,

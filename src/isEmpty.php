@@ -6,6 +6,9 @@ namespace Prelude;
 
 const isEmpty = __NAMESPACE__.'\isEmpty';
 
+/**
+ * Because `is_empty` does not callable.
+ */
 function isEmpty($x): bool
 {
     return anyPass([

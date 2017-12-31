@@ -4,19 +4,11 @@ Prelude
 [![Code Coverage](https://scrutinizer-ci.com/g/sergiors/prelude/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sergiors/prelude/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/sergiors/prelude/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sergiors/prelude/build-status/master)
 
+
 Install
 -------
 
-`composer require prelude/prelude "dev-master"`
-
-```
-"repositories": [
-    {
-        "type": "vcs",
-        "url":  "git@github.com:sergiors/prelude.git"
-    }
-]
-```
+`composer require sergiors/prelude "dev-master"`
 
 How to use
 ----------

@@ -1,5 +1,5 @@
 {
-    "name": "prelude/prelude",
+    "name": "sergiors/prelude",
     "description": "Functional library",
     "keywords": ["functional-programming", "monad"],
     "type": "library",
@@ -26,6 +26,7 @@
     "autoload": {
         "files": [
             "src/consts.php",
+            "src/all.php",
             "src/allPass.php",
             "src/always.php",
             "src/anyPass.php",

@@ -4,11 +4,13 @@ namespace Prelude;
 
 const pipe = '\pipe';
 
+use Closure;
+
 /**
  * Performs left-to-right function composition.
  * The leftmost function may have any arity; the remaining functions must be unary.
  */
-function pipe(callable ...$callbacks): \Closure
+function pipe(callable ...$callbacks): Closure
 {
     return function ($payload = null, ...$rest) use ($callbacks) {
         $leftmost = function ($payload) use ($rest, $callbacks) {

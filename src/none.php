@@ -6,7 +6,9 @@ namespace Prelude;
 
 const none = __NAMESPACE__.'\none';
 
-function none(callable $pred): \Closure
+use Closure;
+
+function none(callable $pred): Closure
 {
     return function (array $xss) use ($pred): bool {
         return -1 === find($pred)($xss);

@@ -6,7 +6,9 @@ namespace Prelude;
 
 const equals = __NAMESPACE__.'\equals';
 
-function equals($x): \Closure
+use Closure;
+
+function equals($x): Closure
 {
     return function ($y) use ($x): bool {
         return $x === $y;
