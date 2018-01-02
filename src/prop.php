@@ -10,7 +10,7 @@ use Closure;
 
 function prop($x): Closure
 {
-    return function (array $xss) use ($x) {
-        return $xss[$x] ?? null;
+    return function (array $xs) use ($x) {
+        return $xs[$x] ?? null;
     };
 }

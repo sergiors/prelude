@@ -64,6 +64,7 @@
             "src/pipe.php",
             "src/prepend.php",
             "src/prop.php",
+            "src/props.php",
             "src/reduce.php",
             "src/replace.php",
             "src/slice.php",

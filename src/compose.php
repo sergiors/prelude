@@ -12,7 +12,7 @@ use Closure;
  * Performs right-to-left function composition.
  * The rightmost function may have any arity; the remaining functions must be unary.
  */
-function compose(callable ...$args): Closure
+function compose(callable ...$callbacks): Closure
 {
-    return pipe(...array_reverse($args));
+    return pipe(...array_reverse($callbacks));
 }
