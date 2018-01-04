@@ -24,6 +24,9 @@
         "phpbench/phpbench": "@dev"
     },
     "autoload": {
+        "psr-4": {
+            "Prelude\\": "src"
+        },
         "files": [
             "src/consts.php",
             "src/all.php",

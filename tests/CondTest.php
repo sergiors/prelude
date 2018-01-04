@@ -2,6 +2,7 @@
 
 namespace Prelude\Tests;
 
+use const Prelude\id;
 use function Prelude\cond;
 use function Prelude\equals;
 use function Prelude\always;
@@ -28,9 +29,9 @@ class CondTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Prelude\Exception\CondClauseException
      */
-    public function shouldThrowInvalidArgumentExceptionWhenAnyMatch()
+    public function shouldThrowCondClauseExceptionWhenNothingMatch()
     {
         $fn = cond([
             [equals([]), always(true)]

@@ -6,12 +6,12 @@ namespace Prelude;
 
 const last = __NAMESPACE__.'\last';
 
-use InvalidArgumentException;
+use Prelude\Exception\EmptyListException;
 
 function last(array $xss)
 {
     if ([] === $xss) {
-        throw new InvalidArgumentException('Empty list.');
+        throw new EmptyListException;
     }
 
     return array_values(

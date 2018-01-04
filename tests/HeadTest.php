@@ -17,9 +17,9 @@ class HeadTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Prelude\Exception\EmptyListException
      */
-    public function shouldThrowInvalidArgumentException()
+    public function shouldThrowEmptyListException()
     {
         head([]);
     }

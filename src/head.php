@@ -6,12 +6,12 @@ namespace Prelude;
 
 const head = __NAMESPACE__.'\head';
 
-use InvalidArgumentException;
+use Prelude\Exception\EmptyListException;
 
 function head(array $xss)
 {
     if ([] === $xss) {
-        throw new InvalidArgumentException('Empty list.');
+        throw new EmptyListException;
     }
 
     return array_values(
