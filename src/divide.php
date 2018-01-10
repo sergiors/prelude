@@ -6,9 +6,7 @@ namespace Prelude;
 
 const divide = __NAMESPACE__.'\divide';
 
-use Closure;
-
-function divide($x): Closure
+function divide($x): \Closure
 {
     return function ($y) use ($x) {
         return $x / $y;

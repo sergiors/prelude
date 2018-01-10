@@ -6,9 +6,7 @@ namespace Prelude;
 
 const memoize = __NAMESPACE__.'\memoize';
 
-use Closure;
-
-function memoize(callable $callback): Closure
+function memoize(callable $callback): \Closure
 {
     return function (...$args) use ($callback) {
         static $cache = [];

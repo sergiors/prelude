@@ -6,9 +6,7 @@ namespace Prelude;
 
 const props = __NAMESPACE__.'\props';
 
-use Closure;
-
-function props(array $ks): Closure
+function props(array $ks): \Closure
 {
     return function (array $xs) use ($ks) {
         return array_map(function ($k) use ($xs) {

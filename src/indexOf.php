@@ -6,9 +6,7 @@ namespace Prelude;
 
 const indexOf = __NAMESPACE__.'\indexOf';
 
-use Closure;
-
-function indexOf($x): Closure
+function indexOf($x): \Closure
 {
     return function (array $xs, bool $strict = false) use ($x): int {
         $pos = array_search($x, $xs, $strict);

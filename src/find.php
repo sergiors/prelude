@@ -6,9 +6,7 @@ namespace Prelude;
 
 const find = __NAMESPACE__.'\find';
 
-use Closure;
-
-function find(callable $pred): Closure
+function find(callable $pred): \Closure
 {
     return function (array $xss) use ($pred) {
         if ([] === $xs = $xss[0] ?? []) {

@@ -6,9 +6,7 @@ namespace Prelude;
 
 const take = __NAMESPACE__.'\take';
 
-use Closure;
-
-function take(int $n): Closure
+function take(int $n): \Closure
 {
     return function (array $xss) use ($n): array {
         return array_slice($xss, 0, $n);

@@ -6,9 +6,7 @@ namespace Prelude;
 
 const any = __NAMESPACE__.'\any';
 
-use Closure;
-
-function any(callable $pred): Closure
+function any(callable $pred): \Closure
 {
     return function (array $xs) use ($pred): bool {
         return array_reduce($xs, function (bool $prev, $x) use ($pred): bool {

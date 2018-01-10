@@ -6,9 +6,7 @@ namespace Prelude;
 
 const multiply = __NAMESPACE__.'\multiply';
 
-use Closure;
-
-function multiply($x): Closure
+function multiply($x): \Closure
 {
     return function ($y) use ($x) {
         return $x * $y;

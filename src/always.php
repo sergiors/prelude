@@ -6,9 +6,7 @@ namespace Prelude;
 
 const always = __NAMESPACE__.'\always';
 
-use Closure;
-
-function always($x): Closure
+function always($x): \Closure
 {
     return function () use ($x) {
         return $x;

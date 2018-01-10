@@ -6,14 +6,12 @@ namespace Prelude;
 
 const unless = __NAMESPACE__.'\unless';
 
-use Closure;
-
 /**
  * @see http://elixir-lang.org/getting-started/case-cond-and-if.html#if-and-unless
  */
-function unless(callable $pred): Closure
+function unless(callable $pred): \Closure
 {
-    return function (callable $callback) use ($pred): Closure {
+    return function (callable $callback) use ($pred): \Closure {
         return function ($x) use ($pred, $callback) {
             return $pred($x)
                 ? $x

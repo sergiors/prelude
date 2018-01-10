@@ -6,11 +6,9 @@ namespace Prelude;
 
 const partial = __NAMESPACE__.'\partial';
 
-use ReflectionFunction;
-
 function partial(callable $callback, ...$args)
 {
-    $arity = (new ReflectionFunction($callback))->getNumberOfRequiredParameters();
+    $arity = (new \ReflectionFunction($callback))->getNumberOfRequiredParameters();
 
     return $args[$arity - 1] ?? false
         ? $callback(...$args)

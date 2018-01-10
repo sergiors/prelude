@@ -6,9 +6,7 @@ namespace Prelude;
 
 const prop = __NAMESPACE__.'\prop';
 
-use Closure;
-
-function prop($x): Closure
+function prop($x): \Closure
 {
     return function (array $xs) use ($x) {
         return $xs[$x] ?? null;
