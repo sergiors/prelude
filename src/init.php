@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Prelude;
 
 const init = __NAMESPACE__.'\init';
