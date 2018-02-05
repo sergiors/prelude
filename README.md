@@ -69,6 +69,8 @@ API
 ---
 All functions is unitary, exception when the second argument is optional. It has constants to help you to work with point-free style.
 
+[**Full API Documentation**](docs/index.md)
+
 ```
 all()
 allPass()
