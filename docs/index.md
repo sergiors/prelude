@@ -51,6 +51,25 @@ All functions is unitary, exception when the second argument is optional. It has
 + unless()
 + when()
 
+#### Constants from native functions
+
++ keys 
++ values
++ flip 
++ sum
++ isNull
++ isInt
++ isFloat
++ isNumeric
++ isString
++ isBool
++ isScalar
++ isArray
++ isObject
++ isCallable
+
+-------
+
 ### `all()`
 
 ```php
