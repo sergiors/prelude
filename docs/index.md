@@ -3,9 +3,9 @@ All functions is unitary, exception when the second argument is optional. It has
 
 + [`all()`](#all)
 + [`allPass()`](#allpass)
-+ always()
-+ any()
-+ anyPass()
++ [`always()`](#always)
++ [`any()`](#any)
++ [`anyPass()`](#anypass)
 + append()
 + contains()
 + compose()
@@ -109,6 +109,80 @@ class AllPassTest extends \PHPUnit\Framework\TestCase
         $x = allPass([$propEq('rank', 'Q'), $propEq('suit', '♠︎')]);
         $this->assertTrue($x(['rank' => 'Q', 'suit' => '♠︎']));
         $this->assertFalse($x(['rank' => 'Q', 'suit' => '♣︎︎']));
+    }
+}
+```
+
+### `always()`
+
+```php
+function always($x): \Closure
+{
+    return function () use ($x) {
+        return $x;
+    };
+}
+```
+
+### `any()`
+
+```php
+function any(callable $pred): \Closure;
+```
+
+function => closure => boolean
+
+```php
+use function Prelude\any;
+
+class AnyTest extends \PHPUnit\Framework\TestCase
+{
+    public function test()
+    {
+        $isEven = function ($n) { return $n % 2 === 0; };
+        $isOdd = function ($n) { return $n % 2 === 1; };
+
+        $this->assertTrue(any($isEven)([1, 3, 4, 5, 7]));
+        $this->assertFalse(any($isEven)([1, 3, 5, 7]));
+
+        $this->assertTrue(any($isOdd)([1, 3, 5, 7]));
+        $this->assertFalse(any($isOdd)([2, 4, 6]));
+
+        $this->assertTrue(any('is_array')([2, []]));
+        $this->assertFalse(any('is_array')(['s', 'x']));
+    }
+}
+```
+
+### `anyPass()`
+
+```php
+function anyPass(array $preds): \Closure;
+```
+array => closure => boolean
+
+```php
+use function Prelude\anyPass;
+use function Prelude\partial;
+use function Prelude\equals;
+use function Prelude\has;
+
+class AnyPassTest extends \PHPUnit\Framework\TestCase
+{
+
+    public function shouldPass()
+    {
+        $gt = partial(function ($a, $b) { return $a > $b; });
+        $gte = anyPass([$gt(3), equals(3)]);
+
+        $this->assertTrue($gte(2));
+        $this->assertTrue($gte(3));
+        $this->assertFalse($gte(4));
+
+        $has = anyPass([has('user'), has('mobile')]);
+        $this->assertTrue($has(['user' => '']));
+        $this->assertTrue($has(['mobile' => '']));
+        $this->assertFalse($has([]));
     }
 }
 ```
