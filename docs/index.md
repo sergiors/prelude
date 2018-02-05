@@ -6,8 +6,8 @@ All functions is unitary, exception when the second argument is optional. It has
 + [`always()`](#always)
 + [`any()`](#any)
 + [`anyPass()`](#anypass)
-+ append()
-+ contains()
++ [`append()`](#append)
++ [`contains()`](#contains)
 + compose()
 + cond()
 + divide()
@@ -76,7 +76,7 @@ All functions is unitary, exception when the second argument is optional. It has
 function all(callable $pred): \Closure;
 ```
 
-function => closure => boolean
+`function => closure([array]) => boolean`
 
 ```php
 use const Prelude\isScalar;
@@ -149,7 +149,7 @@ function always($x): \Closure
 function any(callable $pred): \Closure;
 ```
 
-function => closure => boolean
+`function => closure([array]) => boolean`
 
 ```php
 use function Prelude\any;
@@ -178,7 +178,7 @@ class AnyTest extends \PHPUnit\Framework\TestCase
 ```php
 function anyPass(array $preds): \Closure;
 ```
-array => closure => boolean
+[array] => closure(callable) => boolean
 
 ```php
 use function Prelude\anyPass;
@@ -202,6 +202,55 @@ class AnyPassTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($has(['user' => '']));
         $this->assertTrue($has(['mobile' => '']));
         $this->assertFalse($has([]));
+    }
+}
+```
+
+### `append()`
+
+```php
+function append($x): \Closure;
+```
+
+`any => closure([array]) => [array]`
+
+```php
+use function Prelude\append;
+
+class AppendTest extends \PHPUnit\Framework\TestCase
+{
+
+    public function shouldReturnAppened()
+    {
+        $this->assertEquals(append('tests')(['write', 'more']), ['write', 'more', 'tests']);
+
+        $append = append(['tests']);
+        $this->assertEquals($append(['write', 'more']), ['write', 'more', ['tests']]);
+    }
+}
+```
+
+### `contains()`
+
+```php
+function contains($x): \Closure;
+```
+
+`any => closure([array]) => bool`
+
+```php
+use function Prelude\Contains;
+
+class ContainsText extends \PHPUnit\Framework\TestCase
+{
+    public function test()
+    {
+        $ls = ['name' => 'James'];
+        $this->assertTrue(contains('James')($ls));
+        $this->assertFalse(contains('Kirk')($ls));
+
+        $nums = [10, 20, 30];
+        $this->assertTrue(contains(10)($nums));
     }
 }
 ```
