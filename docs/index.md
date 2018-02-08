@@ -82,17 +82,13 @@ function all(callable $pred): \Closure;
 use const Prelude\isScalar;
 use function Prelude\all;
 
-class AllTest extends \PHPUnit\Framework\TestCase
-{
-    public function test()
-    {
-        $even = function ($n) { return $n % 2 === 0; };
+$even = function ($n) { 
+    return $n % 2 === 0; 
+};
         
-        $this->assertTrue(all($even)([2, 4, 6, 8, 10, 12]));
-        $this->assertTrue(all(isScalar)([1, 2, 3, 4]));
-        $this->assertFalse(all(isScalar)([1, 2, [], 4]));
-    }
-}
+all($even)([2, 4, 6, 8, 10, 12]); // true
+all(isScalar)([1, 2, 3, 4]); // true
+all(isScalar)([1, 2, [], 4]); // false
 ```
 
 ### `allPass()`
@@ -109,27 +105,22 @@ use function Prelude\allPass;
 use function Prelude\get;
 use function Prelude\has;
 
-class AllPassTest extends \PHPUnit\Framework\TestCase
-{
-    public function test()
-    {
-        $placeholders = [
-            'to' => 'xxx@xxx.com',
-            'from' => 'xxx@xxx.com'
-        ];
+$placeholders = [
+    'to' => 'xxx@xxx.com',
+    'from' => 'xxx@xxx.com'
+];
 
-        $propEq = partial(function ($k, $v, array $xss) {
-            return ($xss[$k] ?? false) === $v;
-        });
+$propEq = partial(function ($k, $v, array $xss) {
+    return ($xss[$k] ?? false) === $v;
+});
 
-        $y = allPass([has('from'), has('to')]);        
-        $this->assertTrue($y($placeholders));
+$y = allPass([has('from'), has('to')]);        
+$y($placeholders); // true
 
-        $x = allPass([$propEq('rank', 'Q'), $propEq('suit', '♠︎')]);
-        $this->assertTrue($x(['rank' => 'Q', 'suit' => '♠︎']));
-        $this->assertFalse($x(['rank' => 'Q', 'suit' => '♣︎︎']));
-    }
-}
+$x = allPass([$propEq('rank', 'Q'), $propEq('suit', '♠︎')]);
+
+$x(['rank' => 'Q', 'suit' => '♠︎']); // true
+$x(['rank' => 'Q', 'suit' => '♣︎︎']); // false
 ```
 
 ### `always()`
@@ -154,23 +145,17 @@ function any(callable $pred): \Closure;
 ```php
 use function Prelude\any;
 
-class AnyTest extends \PHPUnit\Framework\TestCase
-{
-    public function test()
-    {
-        $isEven = function ($n) { return $n % 2 === 0; };
-        $isOdd = function ($n) { return $n % 2 === 1; };
+$isEven = function ($n) { return $n % 2 === 0; };
+$isOdd = function ($n) { return $n % 2 === 1; };
 
-        $this->assertTrue(any($isEven)([1, 3, 4, 5, 7]));
-        $this->assertFalse(any($isEven)([1, 3, 5, 7]));
+any($isEven)([1, 3, 4, 5, 7]); // true
+any($isEven)([1, 3, 5, 7]); // false
 
-        $this->assertTrue(any($isOdd)([1, 3, 5, 7]));
-        $this->assertFalse(any($isOdd)([2, 4, 6]));
+any($isOdd)([1, 3, 5, 7]); // true
+any($isOdd)([2, 4, 6]); // false
 
-        $this->assertTrue(any('is_array')([2, []]));
-        $this->assertFalse(any('is_array')(['s', 'x']));
-    }
-}
+any('is_array')([2, []]); // true
+any('is_array')(['s', 'x']); // false
 ```
 
 ### `anyPass()`
@@ -186,24 +171,18 @@ use function Prelude\partial;
 use function Prelude\equals;
 use function Prelude\has;
 
-class AnyPassTest extends \PHPUnit\Framework\TestCase
-{
+$gt = partial(function ($a, $b) { return $a > $b; });
+$gte = anyPass([$gt(3), equals(3)]);
 
-    public function shouldPass()
-    {
-        $gt = partial(function ($a, $b) { return $a > $b; });
-        $gte = anyPass([$gt(3), equals(3)]);
+$gte(2); // true
+$gte(3); // true
+$gte(4); // false
 
-        $this->assertTrue($gte(2));
-        $this->assertTrue($gte(3));
-        $this->assertFalse($gte(4));
+$has = anyPass([has('user'), has('mobile')]);
+$has(['user' => '']); // true
+$has(['mobile' => '']); // true
+$has([]); // false
 
-        $has = anyPass([has('user'), has('mobile')]);
-        $this->assertTrue($has(['user' => '']));
-        $this->assertTrue($has(['mobile' => '']));
-        $this->assertFalse($has([]));
-    }
-}
 ```
 
 ### `append()`
@@ -217,17 +196,10 @@ function append($x): \Closure;
 ```php
 use function Prelude\append;
 
-class AppendTest extends \PHPUnit\Framework\TestCase
-{
+append('tests')(['write', 'more']); // => ['write', 'more', 'tests'];
 
-    public function shouldReturnAppened()
-    {
-        $this->assertEquals(append('tests')(['write', 'more']), ['write', 'more', 'tests']);
-
-        $append = append(['tests']);
-        $this->assertEquals($append(['write', 'more']), ['write', 'more', ['tests']]);
-    }
-}
+$append = append(['tests']);
+$append(['write', 'more']); // => ['write', 'more', ['tests']];
 ```
 
 ### `contains()`
@@ -241,16 +213,10 @@ function contains($x): \Closure;
 ```php
 use function Prelude\Contains;
 
-class ContainsText extends \PHPUnit\Framework\TestCase
-{
-    public function test()
-    {
-        $ls = ['name' => 'James'];
-        $this->assertTrue(contains('James')($ls));
-        $this->assertFalse(contains('Kirk')($ls));
+$ls = ['name' => 'James'];
+contains('James')($ls); // true
+contains('Kirk')($ls); // false
 
-        $nums = [10, 20, 30];
-        $this->assertTrue(contains(10)($nums));
-    }
-}
+$nums = [10, 20, 30];
+contains(10)($nums); // true    
 ```
