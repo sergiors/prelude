@@ -2,6 +2,8 @@
 
 namespace Prelude;
 
+use function Prelude\tail;
+
 const pipe = '\pipe';
 
 /**
