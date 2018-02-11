@@ -8,7 +8,7 @@ All functions is unitary, exception when the second argument is optional. It has
 + [`anyPass()`](#anypass)
 + [`append()`](#append)
 + [`contains()`](#contains)
-+ compose()
++ [`compose()`](#compose)
 + cond()
 + divide()
 + drop()
@@ -86,9 +86,9 @@ $even = function ($n) {
     return $n % 2 === 0; 
 };
         
-all($even)([2, 4, 6, 8, 10, 12]); // true
-all(isScalar)([1, 2, 3, 4]); // true
-all(isScalar)([1, 2, [], 4]); // false
+all($even)([2, 4, 6, 8, 10, 12]); // => true
+all(isScalar)([1, 2, 3, 4]); // => true
+all(isScalar)([1, 2, [], 4]); // => false
 ```
 
 ### `allPass()`
@@ -97,7 +97,7 @@ all(isScalar)([1, 2, [], 4]); // false
  function allPass(array $preds): \Closure;
  ```
 
- function => closure => boolean
+`function => closure => boolean`
 
  ```php
 use function Prelude\partial;
@@ -115,12 +115,12 @@ $propEq = partial(function ($k, $v, array $xss) {
 });
 
 $y = allPass([has('from'), has('to')]);        
-$y($placeholders); // true
+$y($placeholders); // => true
 
 $x = allPass([$propEq('rank', 'Q'), $propEq('suit', '♠︎')]);
 
-$x(['rank' => 'Q', 'suit' => '♠︎']); // true
-$x(['rank' => 'Q', 'suit' => '♣︎︎']); // false
+$x(['rank' => 'Q', 'suit' => '♠︎']); // => true
+$x(['rank' => 'Q', 'suit' => '♣︎︎']); // => false
 ```
 
 ### `always()`
@@ -148,14 +148,14 @@ use function Prelude\any;
 $isEven = function ($n) { return $n % 2 === 0; };
 $isOdd = function ($n) { return $n % 2 === 1; };
 
-any($isEven)([1, 3, 4, 5, 7]); // true
-any($isEven)([1, 3, 5, 7]); // false
+any($isEven)([1, 3, 4, 5, 7]); // => true
+any($isEven)([1, 3, 5, 7]); // => false
 
-any($isOdd)([1, 3, 5, 7]); // true
-any($isOdd)([2, 4, 6]); // false
+any($isOdd)([1, 3, 5, 7]); // => true
+any($isOdd)([2, 4, 6]); // => false
 
-any('is_array')([2, []]); // true
-any('is_array')(['s', 'x']); // false
+any('is_array')([2, []]); // => true
+any('is_array')(['s', 'x']); // => false
 ```
 
 ### `anyPass()`
@@ -163,7 +163,8 @@ any('is_array')(['s', 'x']); // false
 ```php
 function anyPass(array $preds): \Closure;
 ```
-[array] => closure(callable) => boolean
+
+`[array] => closure(callable) => boolean`
 
 ```php
 use function Prelude\anyPass;
@@ -174,14 +175,14 @@ use function Prelude\has;
 $gt = partial(function ($a, $b) { return $a > $b; });
 $gte = anyPass([$gt(3), equals(3)]);
 
-$gte(2); // true
-$gte(3); // true
-$gte(4); // false
+$gte(2); // => true
+$gte(3); // => true
+$gte(4); // => false
 
 $has = anyPass([has('user'), has('mobile')]);
-$has(['user' => '']); // true
-$has(['mobile' => '']); // true
-$has([]); // false
+$has(['user' => '']); // => true
+$has(['mobile' => '']); // => true
+$has([]); // => false
 
 ```
 
@@ -196,10 +197,10 @@ function append($x): \Closure;
 ```php
 use function Prelude\append;
 
-append('tests')(['write', 'more']); // => ['write', 'more', 'tests'];
+append('tests')(['write', 'more']); // => ['write', 'more', 'tests']
 
 $append = append(['tests']);
-$append(['write', 'more']); // => ['write', 'more', ['tests']];
+$append(['write', 'more']); // => ['write', 'more', ['tests']]
 ```
 
 ### `contains()`
@@ -214,9 +215,32 @@ function contains($x): \Closure;
 use function Prelude\Contains;
 
 $ls = ['name' => 'James'];
-contains('James')($ls); // true
-contains('Kirk')($ls); // false
+contains('James')($ls); // => true
+contains('Kirk')($ls); // => false
 
 $nums = [10, 20, 30];
-contains(10)($nums); // true    
+contains(10)($nums); // => true    
 ```
+
+### `compose()`
+
+```php
+function compose(callable ...$callbacks): \Closure;
+```
+
+```php
+use function Prelude\compose;
+
+$compose = compose(
+    function ($x) {
+        return "foo($x)";
+    },
+    function ($x) {
+        return "bar($x)";
+    },
+    function ($x) {
+        return "baz($x)";
+    }
+);
+
+$compose('x'); // => foo(bar(baz(x)))
