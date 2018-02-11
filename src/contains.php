@@ -12,6 +12,6 @@ const contains = __NAMESPACE__.'\contains';
 function contains($x): \Closure
 {
     return function (array $xs, bool $strict = false) use ($x): bool {
-        return in_array($x, $xs, $strict);
+        return \in_array($x, $xs, $strict);
     };
 }

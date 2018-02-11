@@ -13,6 +13,6 @@ function slice(array $xss): \Closure
         ?int $length = null,
         bool $preserve_keys = false
     ) use ($xss): array {
-        return array_slice($xss, $offset, $length, $preserve_keys);
+        return \array_slice($xss, $offset, $length, $preserve_keys);
     };
 }

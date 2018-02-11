@@ -11,7 +11,7 @@ function memoize(callable $callback): \Closure
     return function (...$args) use ($callback) {
         static $cache = [];
 
-        $key = md5(serialize($args));
+        $key = \md5(\serialize($args));
         
         if (!isset($cache[$key])) {
             $cache[$key] = $callback(...$args);

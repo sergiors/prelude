@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Prelude;
 
+use function Prelude\equals;
+
 const isEmpty = __NAMESPACE__.'\isEmpty';
 
 /**

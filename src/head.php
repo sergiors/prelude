@@ -14,7 +14,7 @@ function head(array $xss)
         throw new EmptyListException;
     }
 
-    return array_values(
-        array_slice($xss, 0, 1)
+    return \array_values(
+        \array_slice($xss, 0, 1)
     )[0];
 }

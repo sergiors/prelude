@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Prelude;
 
+use function Prelude\pipe;
+
 const compose = __NAMESPACE__.'\compose';
 
 /**
@@ -12,5 +14,5 @@ const compose = __NAMESPACE__.'\compose';
  */
 function compose(callable ...$callbacks): \Closure
 {
-    return pipe(...array_reverse($callbacks));
+    return pipe(...\array_reverse($callbacks));
 }
