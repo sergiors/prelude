@@ -9,6 +9,6 @@ const split = __NAMESPACE__.'\split';
 function split(string $str): \Closure
 {
     return function (string $separator, $limit = PHP_INT_MAX) use ($str): array {
-        return explode($separator, $str, $limit);
+        return \explode($separator, $str, $limit);
     };
 }

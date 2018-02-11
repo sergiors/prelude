@@ -9,7 +9,7 @@ const indexOf = __NAMESPACE__.'\indexOf';
 function indexOf($x): \Closure
 {
     return function (array $xs, bool $strict = false) use ($x): int {
-        $pos = array_search($x, $xs, $strict);
+        $pos = \array_search($x, $xs, $strict);
 
         return false === $pos
             ? -1

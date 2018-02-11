@@ -9,6 +9,6 @@ const replace = __NAMESPACE__.'\replace';
 function replace(array $x): \Closure
 {
     return function (array $y, array ...$args) use ($x): array {
-        return array_replace($x, $y, ...$args);
+        return \array_replace($x, $y, ...$args);
     };
 }

@@ -9,7 +9,7 @@ const props = __NAMESPACE__.'\props';
 function props(array $ks): \Closure
 {
     return function (array $xs) use ($ks) {
-        return array_map(function ($k) use ($xs) {
+        return \array_map(function ($k) use ($xs) {
             return $xs[$k] ?? null;
         }, $ks);
     };

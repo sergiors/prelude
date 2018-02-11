@@ -14,7 +14,7 @@ function last(array $xss)
         throw new EmptyListException;
     }
 
-    return array_values(
-        array_slice($xss, -1)
+    return \array_values(
+        \array_slice($xss, -1)
     )[0];
 }

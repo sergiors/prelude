@@ -15,14 +15,14 @@ function pipe(callable ...$callbacks): \Closure
     return function ($payload = null, ...$rest) use ($callbacks) {
         $leftmost = function ($payload) use ($rest, $callbacks) {
             return $callbacks[0](
-                ...array_merge([$payload], $rest)
+                ...\array_merge([$payload], $rest)
             );
         };
 
-        return array_reduce(
+        return \array_reduce(
             [] === $rest
                 ? $callbacks
-                : array_merge([$leftmost], tail($callbacks)),
+                : \array_merge([$leftmost], tail($callbacks)),
             function ($payload, callable $callback) {
                 return $callback($payload);
             },
