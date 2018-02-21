@@ -6,7 +6,6 @@ namespace Prelude;
 
 const all = __NAMESPACE__.'\all';
 
-
 function all(callable $pred): \Closure
 {
     return function (array $xs) use ($pred): bool {

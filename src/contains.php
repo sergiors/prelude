@@ -6,9 +6,6 @@ namespace Prelude;
 
 const contains = __NAMESPACE__.'\contains';
 
-
-	
-
 function contains($x): \Closure
 {
     return function (array $xs, bool $strict = false) use ($x): bool {
