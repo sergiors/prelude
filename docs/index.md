@@ -9,10 +9,10 @@ All functions is unitary, exception when the second argument is optional. It has
 + [`append()`](#append)
 + [`contains()`](#contains)
 + [`compose()`](#compose)
-+ cond()
-+ divide()
-+ drop()
-+ equals()
++ [`cond()`](#cond)
++ [`divide()`](#divide)
++ [`drop()`](#drop)
++ [`equals()`](#equals)
 + filter()
 + find()
 + flatten()
@@ -244,3 +244,82 @@ $compose = compose(
 );
 
 $compose('x'); // => foo(bar(baz(x)))
+```
+
+### `cond()`
+
+```php
+function cond(array $pairs): \Closure;
+```
+
+```php
+use const Prelude\id;
+use function Prelude\cond;
+use function Prelude\equals;
+use function Prelude\always;
+
+$fn = cond([
+    [equals(0), always('water freezes at 0°C')],
+    [equals(100), always('water boils at 100°C')],
+    [always(true), function ($temp) {
+        return 'nothing special happens at '.$temp.'°C';
+    }]
+]);
+
+$fn(0); // => 'water freezes at 0°C'
+$fn(50); // => 'nothing special happens at 50°C'
+$fn(100); // => 'water boils at 100°C'
+```
+
+```php
+$fn = cond([
+    [equals([]), always(true)]
+]);
+
+$fn(true); // => \Prelude\Exception\CondClauseException
+```
+
+### `divide()`
+
+```php
+function divide($x): \Closure;
+```
+
+```php
+use function Prelude\divide;
+
+divide(10)(10); // => 1
+divide(7)(2); // => 3.5
+```
+
+### `drop()`
+
+```php
+function drop(int $n): \Closure;
+```
+
+```php
+use function Prelude\drop;
+
+drop(3)([1, 2, 3, 4, 5]); // => [4, 5]
+drop(5)([1, 2, 3, 4, 5]); // => []
+```
+
+### `equals()`
+
+```php
+function equals($x): \Closure;
+```
+
+```php
+use function Prelude\equals;
+
+equals(true)(true); // => true
+equals(1)(1); // => true
+equals("1")(1); // => false
+equals("true")(true); // => false
+
+$isTrue = equals(true);
+$isTrue(true); // => true
+$isTrue(false); // => false
+```
