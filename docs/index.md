@@ -13,7 +13,7 @@ All functions is unitary, exception when the second argument is optional. It has
 + [`divide()`](#divide)
 + [`drop()`](#drop)
 + [`equals()`](#equals)
-+ filter()
++ [`filter()`](#filter)
 + find()
 + flatten()
 + gt()
@@ -322,4 +322,21 @@ equals("true")(true); // => false
 $isTrue = equals(true);
 $isTrue(true); // => true
 $isTrue(false); // => false
+```
+
+### `filter()`
+
+```php
+function filter(callable $callback): \Closure;
+```
+
+```php
+use function Prelude\filter;
+use function Prelude\equals;
+
+$names = ['James' => true, 'Kirk' => false];
+
+$istrue = filter(equals(true));
+
+$istrue($names); // => ['James' => true]
 ```
