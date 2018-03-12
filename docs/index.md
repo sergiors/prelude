@@ -1,5 +1,5 @@
 # API
-All functions is unitary, exception when the second argument is optional. It has constants to help you to work with point-free style.
+All functions are unitaries, exception when the second argument is optional. It has constants to help you to work with point-free style.
 
 + [`all()`](#all)
 + [`allPass()`](#allpass)
@@ -14,7 +14,7 @@ All functions is unitary, exception when the second argument is optional. It has
 + [`drop()`](#drop)
 + [`equals()`](#equals)
 + [`filter()`](#filter)
-+ find()
++ [`find()`](#find)
 + flatten()
 + gt()
 + gte()
@@ -53,9 +53,9 @@ All functions is unitary, exception when the second argument is optional. It has
 
 #### Constants from native functions
 
-+ keys 
++ keys
 + values
-+ flip 
++ flip
 + sum
 + isNull
 + isInt
@@ -82,10 +82,10 @@ function all(callable $pred): \Closure;
 use const Prelude\isScalar;
 use function Prelude\all;
 
-$even = function ($n) { 
-    return $n % 2 === 0; 
+$even = function ($n) {
+    return $n % 2 === 0;
 };
-        
+
 all($even)([2, 4, 6, 8, 10, 12]); // => true
 all(isScalar)([1, 2, 3, 4]); // => true
 all(isScalar)([1, 2, [], 4]); // => false
@@ -339,4 +339,20 @@ $names = ['James' => true, 'Kirk' => false];
 $istrue = filter(equals(true));
 
 $istrue($names); // => ['James' => true]
+```
+
+### `find()`
+
+```php
+function find(callable $callback): \Closure;
+```
+
+```php
+use function Prelude\find;
+
+$values = [100, 200, 300, 400];
+
+$isGreaterThan200 = function (int $n) { return $n > 200; };
+
+find($isGreaterThan200)($values); // => 300
 ```
