@@ -8,7 +8,9 @@ Prelude
 Install
 -------
 
-`composer require sergiors/prelude "dev-master"`
+```bash
+composer require sergiors/prelude "dev-master"
+```
 
 How to use
 ----------
