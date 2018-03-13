@@ -13,6 +13,6 @@ function partial(callable $callback, ...$args)
     return $args[$arity - 1] ?? false
         ? $callback(...$args)
         : function (...$rest) use ($callback, $args) {
-            return partial($callback, ...array_merge($args, $rest));
+            return partial($callback, ...\array_merge($args, $rest));
         };
 }

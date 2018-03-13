@@ -6,5 +6,5 @@ const tail = __NAMESPACE__.'\tail';
 
 function tail(array $xss): array
 {
-    return array_slice($xss, 1);
+    return \array_slice($xss, 1);
 }

@@ -8,7 +8,9 @@ Prelude
 Install
 -------
 
-`composer require sergiors/prelude "dev-master"`
+```bash
+composer require sergiors/prelude "dev-master"
+```
 
 How to use
 ----------
@@ -67,78 +69,8 @@ echo tail([1, 2, 3]); // => [2, 3]
 
 API
 ---
-All functions is unitary, exception when the second argument is optional. It has constants to help you to work with point-free style.
 
-```
-all()
-allPass()
-always()
-any()
-anyPass()
-append()
-contains()
-compose()
-cond()
-divide()
-drop()
-equals()
-filter()
-find()
-flatten()
-gt()
-gte()
-has()
-head()
-id()
-ifElse()
-isEmpty()
-indexOf()
-init()
-join()
-last()
-lt()
-lte()
-map()
-memoize()
-merge()
-multiply()
-none()
-not()
-partial()
-pipe()
-prepend()
-prop()
-props()
-reduce()
-replace()
-slice()
-split()
-tail()
-take()
-toString()
-typeof()
-unless()
-when()
-```
-
-#### Constants from native functions
-
-```
-keys 
-values
-flip 
-sum
-isNull
-isInt
-isFloat
-isNumeric
-isString
-isBool
-isScalar
-isArray
-isObject
-isCallable
-```
+[**Full API Documentation**](docs/index.md)
 
 Thanks
 ------

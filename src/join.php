@@ -6,12 +6,9 @@ namespace Prelude;
 
 const join = __NAMESPACE__.'\join';
 
-
-	
-
 function join(array $xss): \Closure
 {
     return function (string $glue) use ($xss): string {
-        return implode($glue, $xss);
+        return \implode($glue, $xss);
     };
 }
