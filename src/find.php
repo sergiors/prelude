@@ -6,11 +6,14 @@ namespace Prelude;
 
 const find = __NAMESPACE__.'\find';
 
+/**
+ * find :: (a -> Boolean) -> [a] -> a
+ */
 function find(callable $pred): \Closure
 {
     return function (array $xss) use ($pred) {
         if ([] === $xs = $xss[0] ?? []) {
-            return -1;
+            return null;
         }
 
         if ($pred($xs)) {
